@@ -1,12 +1,15 @@
-// Espaço reservado para o jogo do Scratch da turma.
-// Quando o link estiver pronto, basta preencher GAME_URL abaixo.
-const GAME_URL = '' // ex.: 'https://scratch.mit.edu/projects/123456789'
+// Jogo da turma (hospedado fora do site).
+const GAME_URL = 'https://bespoke-entremet-055b4e.netlify.app/'
 
 export default function Jogo() {
   const pronto = GAME_URL.trim().length > 0
-  const embedUrl = pronto
-    ? GAME_URL.trim().replace(/\/$/, '') + '/embed'
-    : ''
+  // Link genérico (não-Scratch): incorpora a URL direta.
+  // Se for um link do Scratch (scratch.mit.edu/projects/...), usa o formato /embed.
+  const embedUrl = !pronto
+    ? ''
+    : GAME_URL.includes('scratch.mit.edu')
+      ? GAME_URL.trim().replace(/\/$/, '') + '/embed'
+      : GAME_URL.trim()
 
   return (
     <section
@@ -15,8 +18,19 @@ export default function Jogo() {
       className="bg-[#eff6dc] py-16 sm:py-20 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-emerald-950 to-teal-900 text-white ring-1 ring-emerald-900/20">
-          <div className="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2">
+        <div className="relative overflow-hidden rounded-[2rem] bg-emerald-950 text-white ring-1 ring-emerald-900/20">
+          <img
+            src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-950/90 via-emerald-950/80 to-teal-950/85"
+          />
+          <div className="relative grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-lime-200">
                 Bônus · Jogo interativo
@@ -58,7 +72,7 @@ export default function Jogo() {
             >
               {pronto ? (
                 <iframe
-                  title="Jogo E-lixo Zero no Scratch"
+                  title="Jogo E-lixo Zero da turma do 1.º ano K"
                   src={embedUrl}
                   className="h-full w-full rounded-3xl border-0"
                   loading="lazy"

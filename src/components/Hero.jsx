@@ -93,7 +93,7 @@ export default function Hero() {
           <figcaption className="mt-3 text-xs lg:text-sm text-emerald-50/60">
             Foto: Unsplash. A coleta seletiva é o primeiro passo da economia circular.
           </figcaption>
-          <div className="absolute -bottom-5 left-5 right-5 sm:left-8 sm:right-auto sm:max-w-sm rounded-2xl bg-white/95 px-5 py-4 lg:px-6 lg:py-5 shadow-xl shadow-emerald-950/20 backdrop-blur transition-all duration-300 ease-out hover:-translate-y-1">
+          <div className="absolute bottom-5 left-5 right-5 sm:left-8 sm:right-auto sm:max-w-sm rounded-2xl bg-white/95 px-5 py-4 lg:px-6 lg:py-5 shadow-xl shadow-emerald-950/20 backdrop-blur transition-all duration-300 ease-out hover:-translate-y-1">
             <p className="text-xs lg:text-sm font-semibold uppercase tracking-wider text-emerald-700">
               Economia circular
             </p>

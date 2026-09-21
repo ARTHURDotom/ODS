@@ -6,6 +6,13 @@ html {
   scroll-behavior: smooth;
 }
 
+@layer base {
+  h1,
+  h2 {
+    @apply font-display;
+  }
+}
+
 body {
   @apply bg-[#eff6dc] text-slate-800 antialiased;
   text-rendering: optimizeLegibility;
@@ -28,19 +35,7 @@ section[id] {
   border-radius: 6px;
 }
 
-/* Transição de entrada suave ao rolar (ativada via .Reveal) */
-.reveal {
-  opacity: 0;
-  transform: translateY(26px);
-  transition:
-    opacity 0.7s ease-out,
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-.reveal-visivel {
-  opacity: 1;
-  transform: none;
-}
+/* (transições de entrada agora via framer-motion no componente Reveal) */
 
 /* Imagens: renderização suave */
 img {
@@ -68,11 +63,6 @@ img {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
   *,
   *::before,

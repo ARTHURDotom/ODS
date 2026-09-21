@@ -8,7 +8,7 @@ export default function QuemFez() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 grid items-center gap-10 lg:grid-cols-2">
         <figure className="order-1">
           <img
-            src="/turma-1k.jpg"
+            src="./turma-1k.jpg"
             alt="Foto da turma do 1.º ano K do Ensino Médio do Colégio Cruzeiro do Sul, São Miguel, reunida na escola"
             loading="lazy"
             className="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-lg ring-1 ring-stone-200/70 transition-all duration-500 ease-out hover:shadow-xl hover:scale-[1.01]"
@@ -101,6 +101,31 @@ export default function QuemFez() {
             allowFullScreen
           />
         </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-10 grid items-start gap-8 lg:grid-cols-2">
+        <div>
+          <h3 className="text-xl lg:text-2xl font-bold text-stone-900">A gente explica nesse vídeo</h3>
+          <p className="mt-2 text-stone-600 leading-relaxed">
+            Gravamos um vídeo explicativo sobre o nosso trabalho: o que é o lixo eletrônico,
+            como ele afeta o planeta e o que dá pra fazer a respeito. Aperta o play que
+            em 1 minutinho você entende tudo!
+          </p>
+        </div>
+        <figure className="mx-auto w-full max-w-xs sm:max-w-sm">
+          <video
+            src="./videos/turma.mp4"
+            controls
+            preload="none"
+            playsInline
+            className="aspect-[9/16] w-full rounded-[2rem] bg-emerald-950 object-cover shadow-lg ring-1 ring-stone-200/70"
+          >
+            Seu navegador não suporta a reprodução de vídeos.
+          </video>
+          <figcaption className="mt-2 text-xs text-stone-500">
+            Vídeo da turma · 1.º ano K (2026) · Colégio Cruzeiro do Sul — São Miguel.
+          </figcaption>
+        </figure>
       </div>
     </section>
   )
