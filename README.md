@@ -36,11 +36,12 @@ Alunos do 1.º ano K do Ensino Médio — Colégio Cruzeiro do Sul, São Miguel.
 ├── src/
 │   ├── App.jsx             # composição das seções
 │   ├── data.js             # estatísticas, ODS, passos e práticas
-│   └── components/         # 60+ componentes: Header, Hero, Problema, ODS,
-│                           # Jornada, Numeros, Mitos, Brasil, Solucoes, Calculadora,
-│                           # Simulador, Jogo, Memoria, Arcade, Quiz (+níveis), Ranking,
-│                           # Enquete, Votacao, CTA, Checklist, Desafio30, QuemFez,
-│                           # Faq, Sobre, Encerramento, Footer, ...
+│   └── components/         # 70+ componentes: Header, Hero, Problema, ODS,
+│                           # Jornada, Comparador, Numeros, CasoReal, Mitos, Brasil,
+│                           # Solucoes, Calculadora, Simulador, Jogo, Memoria, Arcade,
+│                           # Quiz (básico + avançado + maratona), Ranking, Enquete,
+│                           # Votacao, CTA, Checklist, Desafio30, QuemFez, Faq,
+│                           # Sobre, Encerramento, Footer, ...
 └── .github/workflows/deploy.yml  # build + deploy automático
 ```
 
@@ -56,19 +57,6 @@ Alunos do 1.º ano K do Ensino Médio — Colégio Cruzeiro do Sul, São Miguel.
 ## Créditos de mídia
 
 - Fotos genéricas: Unsplash · Foto e vídeo da turma: acervo próprio · Ícones: SVG próprios
-
-## Como rodar e publicar
-
-```powershell
-npm install
-npm run dev    # abre em http://localhost:5173
-npm run build  # gera a pasta dist/ (validar antes de enviar)
-npm test       # roda os testes automatizados (Vitest)
-```
-
-Qualquer push na `main` republica o site via GitHub Actions. Seções atuais: Hero, Problema,
-Jornada, Números, ODS, Mitos, Brasil, Soluções, Calculadora, Jogo, Memória, Arcade, Quiz
-(básico + avançado + maratona), Ranking, Enquete, CTA, Checklist, Quem fez, FAQ e Sobre.
 
 ## Acessibilidade e teclado
 
