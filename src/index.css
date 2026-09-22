@@ -148,3 +148,21 @@ html {
     animation: none !important;
   }
 }
+
+/* Impressão: mostra somente o certificado */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #certificado,
+  #certificado * {
+    visibility: visible;
+  }
+  #certificado {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    height: fit-content;
+    box-shadow: none;
+  }
+}
