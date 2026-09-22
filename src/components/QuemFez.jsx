@@ -115,6 +115,7 @@ export default function QuemFez() {
         <figure className="mx-auto w-full max-w-xs sm:max-w-sm">
           <video
             src="./videos/turma.mp4"
+            poster="./videos/turma-poster.jpg"
             controls
             preload="none"
             playsInline

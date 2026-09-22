@@ -8,6 +8,7 @@ import CTA from './components/CTA.jsx'
 import QuemFez from './components/QuemFez.jsx'
 import Footer from './components/Footer.jsx'
 import Reveal from './components/Reveal.jsx'
+import VoltarTopo from './components/VoltarTopo.jsx'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Reveal><QuemFez /></Reveal>
       </main>
       <Footer />
+      <VoltarTopo />
     </>
   )
 }

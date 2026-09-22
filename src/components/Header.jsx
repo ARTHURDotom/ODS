@@ -1,14 +1,33 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const links = [
-  { href: '#problema', label: 'O problema' },
-  { href: '#ods', label: 'ODS conectados' },
-  { href: '#solucoes', label: 'Soluções' },
-  { href: '#participe', label: 'Participe' }
+  { id: 'problema', href: '#problema', label: 'O problema' },
+  { id: 'ods', href: '#ods', label: 'ODS conectados' },
+  { id: 'solucoes', href: '#solucoes', label: 'Soluções' },
+  { id: 'jogo', href: '#jogo', label: 'Jogo' },
+  { id: 'participe', href: '#participe', label: 'Participe' }
 ]
 
 export default function Header() {
   const [aberto, setAberto] = useState(false)
+  const [ativa, setAtiva] = useState('inicio')
+
+  useEffect(() => {
+    const ids = ['inicio', ...links.map((l) => l.id)]
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setAtiva(entry.target.id)
+        })
+      },
+      { rootMargin: '-35% 0px -55% 0px' }
+    )
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) obs.observe(el)
+    })
+    return () => obs.disconnect()
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 bg-emerald-950/90 backdrop-blur border-b border-white/10">
@@ -29,7 +48,11 @@ export default function Header() {
           <ul className="flex items-center gap-6 text-sm font-medium text-emerald-50/80">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="transition-colors duration-300 ease-out hover:text-white hover:underline underline-offset-4">
+                <a
+                  href={l.href}
+                  aria-current={ativa === l.id ? 'page' : undefined}
+                  className={`transition-colors duration-300 ease-out hover:text-white hover:underline underline-offset-4 ${ativa === l.id ? 'text-white underline underline-offset-4' : ''}`}
+                >
                   {l.label}
                 </a>
               </li>
@@ -68,8 +91,9 @@ export default function Header() {
               <li key={l.href}>
                 <a
                   href={l.href}
+                  aria-current={ativa === l.id ? 'page' : undefined}
                   onClick={() => setAberto(false)}
-                  className="block rounded-lg px-3 py-2 transition-colors duration-300 hover:bg-white/10"
+                  className={`block rounded-lg px-3 py-2 transition-colors duration-300 hover:bg-white/10 ${ativa === l.id ? 'bg-white/10 text-white' : ''}`}
                 >
                   {l.label}
                 </a>

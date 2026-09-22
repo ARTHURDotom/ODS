@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from 'motion/react'
 
 /** Revela o conteúdo com movimento suave ao entrar na viewport. */
 export default function Reveal({ children, delay = 0, className = '' }) {
