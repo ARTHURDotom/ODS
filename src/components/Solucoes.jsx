@@ -86,7 +86,7 @@ export default function Solucoes() {
             <aside className="rounded-2xl bg-white/10 p-6 ring-1 ring-white/15 backdrop-blur transition-all duration-300 ease-out hover:bg-white/15" aria-labelledby="titulo-cop">
               <h3 id="titulo-cop" className="font-bold text-lg lg:text-xl text-lime-200">Iniciativas em destaque na COP 30</h3>
               <ul className="mt-3 space-y-2 text-sm sm:text-base lg:text-lg text-emerald-50/90 leading-relaxed list-disc pl-5">
-                <li><strong>Logística reversa obrigatória:</strong> fabricantes devem coletar eletroeletrônicos pós-consumo (Decreto 10.240/2020).</li>
+                <li className="break-words"><strong>Logística reversa obrigatória:</strong> fabricantes devem coletar eletroeletrônicos pós-consumo (Decreto 10.240/2020).</li>
                 <li><strong>Pontos de entrega voluntária (PEVs):</strong> redes da ABREE e Green Eletron em lojas e assistências.</li>
                 <li><strong>Economia circular e emprego verde:</strong> cooperativas e recicladores certificados no centro da transição justa.</li>
                 <li><strong>Meta global:</strong> ampliar a coleta formal para frear o avanço rumo às 82 milhões de toneladas em 2030.</li>

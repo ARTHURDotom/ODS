@@ -16,6 +16,7 @@ html {
 body {
   @apply bg-[#eff6dc] text-slate-800 antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 /* Âncoras não ficam escondidas atrás do header fixo */
