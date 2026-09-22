@@ -232,6 +232,15 @@ export default function Sobre() {
               e-waste per year and recycles only 22%. Repair, return and recycle!
             </p>
           </details>
+          <details className="group rounded-[2rem] bg-white p-6 sm:p-8 ring-1 ring-stone-200/70">
+            <summary className="cursor-pointer list-none text-xl font-bold text-stone-900 [&::-webkit-details-marker]:hidden">
+              Declaração de acessibilidade <span aria-hidden="true" className="text-emerald-600 transition-transform group-open:rotate-90 inline-block">▶</span>
+            </summary>
+            <div className="mt-4 space-y-2 text-stone-600 leading-relaxed">
+              <p>Nosso compromisso: contraste AA, navegação completa por teclado, textos alternativos em imagens, Libras (VLibras) e respeito a movimento reduzido.</p>
+              <p>Encontrou uma barreira? Fale com a turma pelo Instagram: @1k.cruzeirodosul.</p>
+            </div>
+          </details>
         </div>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-2">

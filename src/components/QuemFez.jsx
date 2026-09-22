@@ -23,6 +23,7 @@ export default function QuemFez() {
         <Figura
           className="order-1"
           src="./turma-1k.jpg"
+          webpSrc="./turma-1k.webp"
           alt="Foto da turma do 1.º ano K do Ensino Médio do Colégio Cruzeiro do Sul, São Miguel, reunida na escola"
           legenda="Turma do 1.º ano K (2026) · Colégio Cruzeiro do Sul — São Miguel."
           legendaClassName="mt-2 text-xs text-stone-500"

@@ -4,6 +4,7 @@ import { srcSetUnsplash } from '../imagens.js'
 /** Foto padrão das seções: imagem + legenda, com moldura arredondada. */
 function Figura({
   src,
+  webpSrc,
   alt,
   legenda,
   className = '',
@@ -15,18 +16,28 @@ function Figura({
   eager = false,
   children
 }) {
+  const imagem = (
+    <img
+      src={src}
+      srcSet={srcSetUnsplash(src)}
+      sizes={sizes}
+      alt={alt}
+      decoding="async"
+      loading={eager ? 'eager' : 'lazy'}
+      fetchPriority={eager ? 'high' : undefined}
+      className={`w-full object-cover ${aspect} ${rounded} ${imgClassName}`}
+    />
+  )
   return (
     <figure className={`relative ${className}`}>
-      <img
-        src={src}
-        srcSet={srcSetUnsplash(src)}
-        sizes={sizes}
-        alt={alt}
-        decoding="async"
-        loading={eager ? 'eager' : 'lazy'}
-        fetchPriority={eager ? 'high' : undefined}
-        className={`w-full object-cover ${aspect} ${rounded} ${imgClassName}`}
-      />
+      {webpSrc ? (
+        <picture>
+          <source srcSet={webpSrc} type="image/webp" />
+          {imagem}
+        </picture>
+      ) : (
+        imagem
+      )}
       {legenda && (
         <figcaption className={legendaClassName}>
           {legenda}

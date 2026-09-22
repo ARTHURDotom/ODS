@@ -5,7 +5,7 @@ import ODS from './components/ODS.jsx'
 import Solucoes from './components/Solucoes.jsx'
 import Jogo from './components/Jogo.jsx'
 import Quiz from './components/Quiz.jsx'
-import { perguntasAvancadas } from './quizData.js'
+import { perguntasAvancadas, perguntasNivel3, todasPerguntas } from './quizData.js'
 import Enquete from './components/Enquete.jsx'
 import Checklist from './components/Checklist.jsx'
 import Memoria from './components/Memoria.jsx'
@@ -38,6 +38,7 @@ import Footer from './components/Footer.jsx'
 import Reveal from './components/Reveal.jsx'
 import VoltarTopo from './components/VoltarTopo.jsx'
 import FaixaRolante from './components/FaixaRolante.jsx'
+import AoVivo from './components/AoVivo.jsx'
 import BarraProgresso from './components/BarraProgresso.jsx'
 import DivisoriaOnda from './components/DivisoriaOnda.jsx'
 import CircuitoDivisor from './components/CircuitoDivisor.jsx'
@@ -54,6 +55,7 @@ export default function App() {
       <main id="conteudo">
         <Hero />
         <FaixaRolante />
+        <AoVivo />
         <Reveal><Problema /></Reveal>
         <Reveal><Jornada /></Reveal>
         <Reveal><Comparador /></Reveal>
@@ -79,6 +81,26 @@ export default function App() {
             titulo="Quiz avançado"
             idSecao="quiz-avancado"
             idTitulo="titulo-quiz-avancado"
+          />
+        </Reveal>
+        <Reveal>
+          <Quiz
+            dados={perguntasNivel3}
+            chaveRecorde="quiz-recorde-3"
+            kicker="Nível 3 · Especialista"
+            titulo="Quiz especialista"
+            idSecao="quiz-nivel-3"
+            idTitulo="titulo-quiz-nivel-3"
+          />
+        </Reveal>
+        <Reveal>
+          <Quiz
+            dados={todasPerguntas}
+            chaveRecorde="quiz-recorde-maratona"
+            kicker="Maratona · 15 perguntas"
+            titulo="Quiz maratona"
+            idSecao="quiz-maratona"
+            idTitulo="titulo-quiz-maratona"
           />
         </Reveal>
         <Reveal><Ranking /></Reveal>

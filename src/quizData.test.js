@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { mensagemQuiz, perguntas, perguntasAvancadas } from './quizData.js'
+import { mensagemQuiz, perguntas, perguntasAvancadas, perguntasNivel3, todasPerguntas } from './quizData.js'
 
 describe('quizData', () => {
   it('tem 5 perguntas com resposta válida', () => {
@@ -12,9 +12,17 @@ describe('quizData', () => {
     })
   })
 
-  it('nível avançado também tem 5 perguntas válidas', () => {
-    expect(perguntasAvancadas).toHaveLength(5)
+  it('nível avançado também tem 5 perguntas válidas', () => {    expect(perguntasAvancadas).toHaveLength(5)
     perguntasAvancadas.forEach((p) => {
+      expect(p.correta).toBeGreaterThanOrEqual(0)
+      expect(p.correta).toBeLessThan(p.opcoes.length)
+    })
+  })
+
+  it('nível 3 e maratona têm perguntas válidas', () => {
+    expect(perguntasNivel3).toHaveLength(5)
+    expect(todasPerguntas).toHaveLength(15)
+    todasPerguntas.forEach((p) => {
       expect(p.correta).toBeGreaterThanOrEqual(0)
       expect(p.correta).toBeLessThan(p.opcoes.length)
     })

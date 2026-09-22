@@ -86,7 +86,6 @@ export default function Hero() {
             </a>
           </div>
           <MaquinaEscrever />
-          <MaquinaEscrever />
           <dl className="mt-10 grid grid-cols-3 gap-3 max-w-lg text-center">
             {[
               { para: 62, sufixo: ' milhões', legenda: 'de toneladas em 2022' },
@@ -108,9 +107,6 @@ export default function Hero() {
           <p className="mt-4 text-xs lg:text-sm text-emerald-50/60">
             Fonte: Global E-waste Monitor 2024 (UNITAR / ITU). Veja referências no rodapé.
           </p>
-          <div className="mt-4">
-            <Tour />
-          </div>
           <div className="mt-4">
             <Tour />
           </div>

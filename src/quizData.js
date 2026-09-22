@@ -43,8 +43,7 @@ export function mensagemQuiz(pontos, total) {
 }
 
 /** Nível avançado: para quem gabaritou o quiz básico. */
-export const perguntasAvancadas = [
-  {
+export const perguntasAvancadas = [  {
     pergunta: 'Quanto valem os metais embutidos no e-lixo gerado em 2022?',
     opcoes: ['US$ 9 bilhões', 'US$ 91 bilhões', 'US$ 910 bilhões'],
     correta: 1,
@@ -75,3 +74,40 @@ export const perguntasAvancadas = [
     explicacao: 'Belém do Pará: a primeira COP realizada na Amazônia.'
   }
 ]
+
+/** Nível 3 (especialista): números finos da pesquisa. */
+export const perguntasNivel3 = [
+  {
+    pergunta: 'Quantos caminhões de 40 toneladas equivalem ao e-lixo de 2022?',
+    opcoes: ['155 mil', '1,55 milhão', '15,5 milhões'],
+    correta: 1,
+    explicacao: '1,55 milhão de caminhões — em fila, dariam a volta ao Equador (ONU).'
+  },
+  {
+    pergunta: 'Quanto de plástico há no e-lixo global?',
+    opcoes: ['7 milhões de toneladas', '17 milhões de toneladas', '27 milhões de toneladas'],
+    correta: 1,
+    explicacao: '17 Mt de plásticos, contra 31 Mt de metais e 14 Mt de outros materiais.'
+  },
+  {
+    pergunta: 'Quanto a Green Eletron coletou no Brasil em 2024?',
+    opcoes: ['730 toneladas', '7,3 mil toneladas', '73 mil toneladas'],
+    correta: 1,
+    explicacao: '7.323 toneladas de eletroeletrônicos mais 101 toneladas de pilhas e baterias.'
+  },
+  {
+    pergunta: 'Qual parcela da reciclagem brasileira passa por catadores?',
+    opcoes: ['Cerca de 30%', 'Cerca de 60%', 'Cerca de 90%'],
+    correta: 2,
+    explicacao: 'Catadores e cooperativas respondem por cerca de 90% da reciclagem no país.'
+  },
+  {
+    pergunta: 'Quando é o Dia Internacional do E-lixo?',
+    opcoes: ['14 de outubro', '5 de junho', '22 de abril'],
+    correta: 0,
+    explicacao: 'Todo 14 de outubro — marque no calendário e faça um mutirão!'
+  }
+]
+
+/** Maratona: todos os níveis juntos. */
+export const todasPerguntas = [...perguntas, ...perguntasAvancadas, ...perguntasNivel3]

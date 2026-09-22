@@ -36,10 +36,11 @@ Alunos do 1.º ano K do Ensino Médio — Colégio Cruzeiro do Sul, São Miguel.
 ├── src/
 │   ├── App.jsx             # composição das seções
 │   ├── data.js             # estatísticas, ODS, passos e práticas
-│   └── components/         # 30+ componentes: Header, Hero, Problema, ODS,
+│   └── components/         # 60+ componentes: Header, Hero, Problema, ODS,
 │                           # Jornada, Numeros, Mitos, Brasil, Solucoes, Calculadora,
-│                           # Jogo, Memoria, Arcade, Quiz (+níveis), Ranking, Enquete,
-│                           # CTA, Checklist, QuemFez, Faq, Sobre, Footer, ...
+│                           # Simulador, Jogo, Memoria, Arcade, Quiz (+níveis), Ranking,
+│                           # Enquete, Votacao, CTA, Checklist, Desafio30, QuemFez,
+│                           # Faq, Sobre, Encerramento, Footer, ...
 └── .github/workflows/deploy.yml  # build + deploy automático
 ```
 
