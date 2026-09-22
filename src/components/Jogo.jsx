@@ -1,5 +1,6 @@
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
+import { srcSetUnsplash } from '../imagens.js'
 
 // Jogo da turma (hospedado fora do site).
 const GAME_URL = 'https://bespoke-entremet-055b4e.netlify.app/'
@@ -31,8 +32,11 @@ export default function Jogo() {
         <div className="relative overflow-hidden rounded-[2rem] bg-emerald-950 text-white ring-1 ring-emerald-900/20">
           <img
             src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop"
+            srcSet={srcSetUnsplash('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop')}
+            sizes="100vw"
             alt=""
             aria-hidden="true"
+            decoding="async"
             loading="lazy"
             className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30"
           />

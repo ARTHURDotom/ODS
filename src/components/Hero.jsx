@@ -1,6 +1,7 @@
 import Contador from './Contador.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
 import Figura from './Figura.jsx'
+import { srcSetUnsplash } from '../imagens.js'
 
 export default function Hero() {
   function moverLuz(e) {
@@ -20,8 +21,11 @@ export default function Hero() {
       {/* foto de fundo + véu em degradê */}
       <img
         src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop"
+        srcSet={srcSetUnsplash('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop')}
+        sizes="100vw"
         alt=""
         aria-hidden="true"
+        decoding="async"
         fetchpriority="high"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover"
       />

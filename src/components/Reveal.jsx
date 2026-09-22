@@ -1,23 +1,40 @@
-import { motion, useReducedMotion } from 'motion/react'
+import { useEffect, useRef, useState } from 'react'
 
-/** Revela o conteúdo com movimento suave ao entrar na viewport. */
+/** Revela o conteúdo com movimento suave ao entrar na viewport (CSS puro). */
 export default function Reveal({ children, delay = 0, className = '', as = 'div' }) {
-  const reduce = useReducedMotion()
+  const ref = useRef(null)
+  const [visivel, setVisivel] = useState(false)
 
-  if (reduce) {
-    const Tag = as
-    return <Tag className={className}>{children}</Tag>
-  }
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      typeof IntersectionObserver === 'undefined'
+    ) {
+      setVisivel(true)
+      return
+    }
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisivel(true)
+          obs.disconnect()
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
 
-  const Tag = motion[as] || motion.div
+  const Tag = as
 
   return (
     <Tag
-      className={className}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '0px 0px -40px 0px' }}
-      transition={{ duration: 0.7, delay: delay / 1000, ease: [0.22, 1, 0.36, 1] }}
+      ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`${className} reveal${visivel ? ' reveal-visivel' : ''}`}
     >
       {children}
     </Tag>

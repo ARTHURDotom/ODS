@@ -1,6 +1,7 @@
 import { ods } from '../data.js'
 import Reveal from './Reveal.jsx'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
+import { srcSetUnsplash } from '../imagens.js'
 
 export default function ODS() {
   function inclinar(e) {
@@ -67,7 +68,10 @@ export default function ODS() {
           <div className="flex flex-col sm:flex-row sm:items-center">
             <img
               src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop"
+              srcSet={srcSetUnsplash('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop')}
+              sizes="(max-width: 640px) 100vw, 16rem"
               alt="Painéis de energia solar em campo aberto ao pôr do sol"
+              decoding="async"
               loading="lazy"
               className="h-44 w-full object-cover sm:h-full sm:min-h-44 sm:w-64 sm:shrink-0"
             />

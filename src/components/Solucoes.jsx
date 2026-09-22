@@ -1,6 +1,7 @@
 import { passosDescarte, praticas } from '../data.js'
 import Reveal from './Reveal.jsx'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
+import { srcSetUnsplash } from '../imagens.js'
 
 export default function Solucoes() {
   return (
@@ -30,7 +31,10 @@ export default function Solucoes() {
         <figure className="relative mt-10 overflow-hidden rounded-3xl ring-1 ring-white/20">
           <img
             src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1600&auto=format&fit=crop"
+            srcSet={srcSetUnsplash('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1600&auto=format&fit=crop')}
+            sizes="100vw"
             alt="Trilha em meio à floresta amazônica com raios de sol entre as árvores"
+            decoding="async"
             loading="lazy"
             className="h-60 sm:h-72 w-full object-cover transition-all duration-500 ease-out hover:scale-[1.02]"
           />

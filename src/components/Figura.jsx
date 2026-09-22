@@ -1,3 +1,5 @@
+import { srcSetUnsplash } from '../imagens.js'
+
 /** Foto padrão das seções: imagem + legenda, com moldura arredondada. */
 export default function Figura({
   src,
@@ -8,6 +10,7 @@ export default function Figura({
   rounded = 'rounded-[2rem]',
   imgClassName = '',
   legendaClassName = 'mt-2 text-xs lg:text-sm text-stone-500',
+  sizes = '(max-width: 768px) 100vw, 50vw',
   eager = false,
   children
 }) {
@@ -15,7 +18,10 @@ export default function Figura({
     <figure className={`relative ${className}`}>
       <img
         src={src}
+        srcSet={srcSetUnsplash(src)}
+        sizes={sizes}
         alt={alt}
+        decoding="async"
         loading={eager ? 'eager' : 'lazy'}
         fetchPriority={eager ? 'high' : undefined}
         className={`w-full object-cover ${aspect} ${rounded} ${imgClassName}`}
