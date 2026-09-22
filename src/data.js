@@ -48,7 +48,10 @@ export const ods = [
     descricao:
       'O coração do tema. As metas 12.4 e 12.5 pedem gestão química segura e redução, reuso e reciclagem de resíduos até 2030.',
     conexao:
-      'Cada reparo, devolução e reciclagem de eletrônico é ODS 12 na prática: menos extração, menos descarte, mais circularidade.'
+      'Cada reparo, devolução e reciclagem de eletrônico é ODS 12 na prática: menos extração, menos descarte, mais circularidade.',
+    meta: 'Metas 12.4 e 12.5',
+    dado: 'Só 22,3% do e-lixo tem coleta formal no mundo.',
+    acao: 'Devolva o aparelho velho na loja ou em um PEV.'
   },
   {
     numero: '13',
@@ -60,7 +63,10 @@ export const ods = [
     descricao:
       'Geladeiras e ar-condicionados descartados liberam gases de efeito estufa potentes. Minerar matéria-prima nova emite muito mais CO₂ do que reciclar.',
     conexao:
-      'Reciclar metais e dar destino correto à refrigeração evita emissões — pauta direta da COP 30 em Belém.'
+      'Reciclar metais e dar destino correto à refrigeração evita emissões — pauta direta da COP 30 em Belém.',
+    meta: 'Meta 13.2 (políticas climáticas)',
+    dado: 'A queima informal de e-lixo emite milhões de toneladas de CO₂ por ano.',
+    acao: 'Nunca queime cabos ou placas: entregue em coleta formal.'
   },
   {
     numero: '14',
@@ -72,7 +78,10 @@ export const ods = [
     descricao:
       'Chumbo, mercúrio e cádmio de placas e pilhas vazam no solo e chegam a rios e oceanos, contaminando peixes e água potável.',
     conexao:
-      'Descarte correto protege bacias hidrográficas — incluindo a Amazônia, sede da COP 30.'
+      'Descarte correto protege bacias hidrográficas — incluindo a Amazônia, sede da COP 30.',
+    meta: 'Meta 14.1 (reduzir poluição marinha)',
+    dado: 'Uma pilha pode contaminar milhares de litros de água.',
+    acao: 'Pilhas e baterias só em PEVs — nunca no lixo comum.'
   },
   {
     numero: '15',
@@ -84,7 +93,10 @@ export const ods = [
     descricao:
       'Lixões de e-lixo degradam o solo e a mineração de ouro, cobre e lítio pressiona florestas e territórios.',
     conexao:
-      'Economia circular reduz a pressão por novas minas e preserva biodiversidade e solos saudáveis.'
+      'Economia circular reduz a pressão por novas minas e preserva biodiversidade e solos saudáveis.',
+    meta: 'Meta 15.5 (frear perda de biodiversidade)',
+    dado: 'Reciclar evita extrair 900 milhões de toneladas de minério.',
+    acao: 'Prefira reparar e doar antes de trocar de aparelho.'
   }
 ]
 

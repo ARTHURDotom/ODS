@@ -56,6 +56,20 @@ export default function ODS() {
                 </div>
               </div>
               <p className="mt-4 text-stone-700 leading-relaxed">{o.descricao}</p>
+              <dl className="mt-3 grid gap-2 sm:grid-cols-3 text-sm">
+                <div className="rounded-lg bg-white/80 px-3 py-2">
+                  <dt className="font-bold text-slate-500 text-xs uppercase">Meta ONU</dt>
+                  <dd className="font-semibold text-slate-800">{o.meta}</dd>
+                </div>
+                <div className="rounded-lg bg-white/80 px-3 py-2">
+                  <dt className="font-bold text-slate-500 text-xs uppercase">Dado</dt>
+                  <dd className="font-semibold text-slate-800">{o.dado}</dd>
+                </div>
+                <div className="rounded-lg bg-white/80 px-3 py-2">
+                  <dt className="font-bold text-slate-500 text-xs uppercase">Sua ação</dt>
+                  <dd className="font-semibold text-slate-800">{o.acao}</dd>
+                </div>
+              </dl>
               <p className={`mt-3 rounded-xl bg-white/80 px-4 py-3 text-sm font-medium leading-relaxed ${o.corTexto}`}>
                 → {o.conexao}
               </p>

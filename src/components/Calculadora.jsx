@@ -79,8 +79,11 @@ export default function Calculadora() {
                 <span className="text-2xl font-bold">kg</span>
               </p>
               <p className="mt-3 text-emerald-50/85 leading-relaxed">
-                Isso equivale a cerca de <strong>{celularesEquivalentes.toLocaleString('pt-BR')} celulares</strong>.
-                Cada brasileiro gera em média 7,8 kg por ano — leve tudo a um ponto de coleta!
+                Isso equivale a cerca de <strong>{celularesEquivalentes.toLocaleString('pt-BR')} celulares</strong>{' '}
+                e a <strong>{Math.round((total / 7.8) * 100).toLocaleString('pt-BR')}% da média anual por brasileiro (7,8 kg)</strong>.
+                {total > 7.8
+                  ? ' Acima da média — ótima hora para levar tudo ao PEV!'
+                  : ' Abaixo da média anual — mantenha assim e descarte certo!'}
               </p>
             </>
           ) : (

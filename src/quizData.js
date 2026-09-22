@@ -41,3 +41,37 @@ export function mensagemQuiz(pontos, total) {
   if (pontos >= 3) return 'Muito bem! Faltou pouco para gabaritar.'
   return 'Bom começo! Releia as seções acima e tente de novo.'
 }
+
+/** Nível avançado: para quem gabaritou o quiz básico. */
+export const perguntasAvancadas = [
+  {
+    pergunta: 'Quanto valem os metais embutidos no e-lixo gerado em 2022?',
+    opcoes: ['US$ 9 bilhões', 'US$ 91 bilhões', 'US$ 910 bilhões'],
+    correta: 1,
+    explicacao: 'US$ 91 bilhões em metais (cobre, ouro, ferro) — e US$ 62 bilhões se perdem sem reciclagem.'
+  },
+  {
+    pergunta: 'Qual material pesa mais no e-lixo global?',
+    opcoes: ['Plásticos (17 Mt)', 'Metais (31 Mt)', 'Vidro e outros (14 Mt)'],
+    correta: 1,
+    explicacao: 'Metais somam 31 das 62 milhões de toneladas — por isso a reciclagem vale ouro.'
+  },
+  {
+    pergunta: 'Qual a posição do Brasil no ranking das Américas?',
+    opcoes: ['1.º, acima dos EUA', '2.º, atrás dos EUA', '4.º, atrás do México'],
+    correta: 1,
+    explicacao: 'Brasil gera 2,4 Mt/ano: 2.º nas Américas (EUA têm 7,2 Mt) e cerca de 5.º no mundo.'
+  },
+  {
+    pergunta: 'Qual decreto rege a logística reversa de eletroeletrônicos?',
+    opcoes: ['Decreto 10.240/2020', 'Decreto 5.225/2004', 'Decreto 99.999/1999'],
+    correta: 0,
+    explicacao: 'O Decreto 10.240/2020 obriga a cadeia a coletar eletroeletrônicos pós-consumo.'
+  },
+  {
+    pergunta: 'Onde aconteceu a COP 30?',
+    opcoes: ['Rio de Janeiro', 'Belém do Pará', 'Manaus'],
+    correta: 1,
+    explicacao: 'Belém do Pará: a primeira COP realizada na Amazônia.'
+  }
+]

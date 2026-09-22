@@ -5,10 +5,13 @@ import ODS from './components/ODS.jsx'
 import Solucoes from './components/Solucoes.jsx'
 import Jogo from './components/Jogo.jsx'
 import Quiz from './components/Quiz.jsx'
+import { perguntasAvancadas } from './quizData.js'
 import Enquete from './components/Enquete.jsx'
 import Checklist from './components/Checklist.jsx'
 import Memoria from './components/Memoria.jsx'
 import Jornada from './components/Jornada.jsx'
+import Numeros from './components/Numeros.jsx'
+import Brasil from './components/Brasil.jsx'
 import Mitos from './components/Mitos.jsx'
 import Calculadora from './components/Calculadora.jsx'
 import Sobre from './components/Sobre.jsx'
@@ -39,8 +42,10 @@ export default function App() {
         <FaixaRolante />
         <Reveal><Problema /></Reveal>
         <Reveal><Jornada /></Reveal>
+        <Reveal><Numeros /></Reveal>
         <Reveal><ODS /></Reveal>
         <Reveal><Mitos /></Reveal>
+        <Reveal><Brasil /></Reveal>
         <DivisoriaOnda />
         <Reveal><Solucoes /></Reveal>
         <Reveal><Calculadora /></Reveal>
@@ -49,6 +54,16 @@ export default function App() {
         <Reveal><Memoria /></Reveal>
         <CircuitoDivisor />
         <Reveal><Quiz /></Reveal>
+        <Reveal>
+          <Quiz
+            dados={perguntasAvancadas}
+            chaveRecorde="quiz-recorde-2"
+            kicker="Nível 2 · Para quem gabaritou"
+            titulo="Quiz avançado"
+            idSecao="quiz-avancado"
+            idTitulo="titulo-quiz-avancado"
+          />
+        </Reveal>
         <Reveal><Enquete /></Reveal>
         <Reveal><CTA /></Reveal>
         <Reveal><Checklist /></Reveal>

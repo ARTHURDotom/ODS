@@ -71,11 +71,13 @@ export default function Footer() {
             <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
               <li><a href="#problema" className={linkSuave}>O problema</a></li>
               <li><a href="#ods" className={linkSuave}>ODS</a></li>
+              <li><a href="#numeros" className={linkSuave}>Números</a></li>
               <li><a href="#solucoes" className={linkSuave}>Soluções</a></li>
               <li><a href="#jogo" className={linkSuave}>Jogo</a></li>
               <li><a href="#quiz" className={linkSuave}>Quiz</a></li>
               <li><a href="#participe" className={linkSuave}>Participe</a></li>
               <li><a href="#quem-fez" className={linkSuave}>Quem fez</a></li>
+              <li><a href="#brasil" className={linkSuave}>Brasil</a></li>
               <li><a href="#faq" className={linkSuave}>Dúvidas</a></li>
               <li><a href="#sobre" className={linkSuave}>Sobre</a></li>
             </ul>

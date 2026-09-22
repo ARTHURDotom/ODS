@@ -91,6 +91,23 @@ export default function Problema() {
             </ul>
           </article>
         </div>
+
+        <div className="mt-6 rounded-2xl bg-white p-6 sm:p-8 ring-1 ring-stone-200/80">
+          <h3 className="text-lg lg:text-xl font-bold text-stone-900">Ficha dos vilões: o que cada metal causa à saúde</h3>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+            {[
+              ['Chumbo', 'Ataca cérebro e sistema nervoso; crianças são as mais vulneráveis.'],
+              ['Mercúrio', 'Prejudica rins e cérebro; vem de pilhas, lâmpadas e telas.'],
+              ['Cádmio', 'Atinge pulmões e rins; liberado na queima de placas e cabos.']
+            ].map(([metal, efeito]) => (
+              <li key={metal} className="rounded-xl bg-rose-50/70 px-4 py-3 ring-1 ring-rose-200/60">
+                <p className="font-bold text-rose-800">{metal}</p>
+                <p className="mt-1 text-sm text-stone-600 leading-relaxed">{efeito}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3 text-xs text-stone-500">Com base na ficha informativa sobre e-lixo da OMS.</p>
+        </div>
       </div>
     </section>
   )

@@ -96,6 +96,32 @@ export default function Sobre() {
             </a>
           </div>
         </div>
+
+        <div className="mt-6 rounded-[2rem] bg-white p-6 sm:p-8 ring-1 ring-stone-200/70">
+          <h3 className="text-xl font-bold text-stone-900">Referências com links</h3>
+          <ul className="mt-4 grid gap-2 sm:grid-cols-2 text-sm font-medium">
+            {[
+              ['Global E-waste Monitor 2024 (ITU/UNITAR)', 'https://www.itu.int/en/ITU-D/Environment/Pages/Publications/The-Global-E-waste-Monitor-2024.aspx'],
+              ['E-lixo e saúde (OMS)', 'https://www.who.int/news-room/fact-sheets/detail/electronic-waste-%28e-waste%29'],
+              ['Lixo eletrônico recorde em 2022 (ONU News)', 'https://news.un.org/pt/story/2024/03/1829466'],
+              ['ABREE — logística reversa', 'https://abree.org.br/'],
+              ['Green Eletron — pontos de coleta', 'https://greeneletron.org.br/'],
+              ['ODS — Nações Unidas Brasil', 'https://brasil.un.org/pt-br/sdgs']
+            ].map(([label, href]) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between gap-2 rounded-xl bg-stone-50 px-4 py-3 text-stone-700 ring-1 ring-stone-200/60 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-emerald-400 hover:text-emerald-700 hover:shadow-md"
+                >
+                  {label}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )

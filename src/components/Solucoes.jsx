@@ -99,6 +99,35 @@ export default function Solucoes() {
                 <li><strong>Meta global:</strong> ampliar a coleta formal para frear o avanço rumo às 82 milhões de toneladas em 2030.</li>
               </ul>
             </aside>
+
+            <div className="mt-5 rounded-2xl bg-white p-6 text-stone-900">
+              <h3 className="font-bold text-lg">Dentro da reciclagem formal: 5 etapas</h3>
+              <ol className="mt-3 space-y-2 text-sm sm:text-base text-stone-600 leading-relaxed list-decimal pl-5">
+                <li><strong>Coleta</strong> em PEVs, lojas e campanhas.</li>
+                <li><strong>Triagem</strong> por tipo e estado do aparelho.</li>
+                <li><strong>Desmontagem</strong> separando plástico, vidro e placas.</li>
+                <li><strong>Recuperação</strong> de ouro, cobre e alumínio.</li>
+                <li><strong>Nova matéria-prima</strong> voltando à indústria.</li>
+              </ol>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <a
+                  href="https://abree.org.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-700"
+                >
+                  Pontos ABREE ↗
+                </a>
+                <a
+                  href="https://greeneletron.org.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400 hover:text-emerald-700"
+                >
+                  Pontos Green Eletron ↗
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

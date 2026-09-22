@@ -1,28 +1,35 @@
 import { useEffect, useState } from 'react'
-import { perguntas, mensagemQuiz } from '../quizData.js'
+import { perguntas as perguntasPadrao, mensagemQuiz } from '../quizData.js'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
 
 const TEMPO_LIMITE = 30
 
-export default function Quiz() {
+export default function Quiz({
+  dados = perguntasPadrao,
+  chaveRecorde = 'quiz-recorde',
+  kicker = 'Desafio · Teste seus conhecimentos',
+  titulo = 'Quiz E-lixo Zero',
+  idSecao = 'quiz',
+  idTitulo = 'titulo-quiz'
+}) {
   const [respostas, setRespostas] = useState({})
   const [nome, setNome] = useState('')
   const [copiado, setCopiado] = useState(false)
   const [tempo, setTempo] = useState(TEMPO_LIMITE)
   const [recorde, setRecorde] = useState(() => {
     try {
-      return Number(localStorage.getItem('quiz-recorde') || 0)
+      return Number(localStorage.getItem(chaveRecorde) || 0)
     } catch {
       return 0
     }
   })
   const respondidas = Object.keys(respostas).length
-  const acertos = perguntas.filter((p, i) => respostas[i] === p.correta).length
-  const finalizado = respondidas === perguntas.length
-  const gabaritou = finalizado && acertos === perguntas.length
+  const acertos = dados.filter((p, i) => respostas[i] === p.correta).length
+  const finalizado = respondidas === dados.length
+  const gabaritou = finalizado && acertos === dados.length
   const nomeValido = nome.trim().length >= 2
-  const atual = perguntas.findIndex((_, i) => !(i in respostas))
+  const atual = dados.findIndex((_, i) => !(i in respostas))
   const dataExtenso = new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })
 
   useEffect(() => {
@@ -45,7 +52,7 @@ export default function Quiz() {
     if (finalizado && acertos > recorde) {
       setRecorde(acertos)
       try {
-        localStorage.setItem('quiz-recorde', String(acertos))
+        localStorage.setItem(chaveRecorde, String(acertos))
       } catch {
         /* sem armazenamento */
       }
@@ -74,7 +81,7 @@ export default function Quiz() {
     x.fillText(nome.trim().slice(0, 40), 600, 330)
     x.fillStyle = '#57534e'
     x.font = '400 32px system-ui, sans-serif'
-    x.fillText('Gabaritou o Quiz E-lixo Zero (5/5)', 600, 410)
+    x.fillText(`Gabaritou o ${titulo} (${dados.length}/${dados.length})`, 600, 410)
     x.fillText(`1.º ano K · Colégio Cruzeiro do Sul · ${dataExtenso}`, 600, 465)
     return c
   }
@@ -88,7 +95,7 @@ export default function Quiz() {
 
   async function compartilhar() {
     const url = window.location.href
-    const texto = `Fiz ${acertos}/${perguntas.length} no Quiz E-lixo Zero! Teste você também: ${url}`
+    const texto = `Fiz ${acertos}/${dados.length} no ${titulo}! Teste você também: ${url}`
     if (gabaritou && navigator.canShare) {
       try {
         const blob = await new Promise((resolve) => gerarCanvas().toBlob(resolve, 'image/png'))
@@ -124,16 +131,16 @@ export default function Quiz() {
   }
 
   return (
-    <section id="quiz" aria-labelledby="titulo-quiz" className="bg-[#eff6dc] py-16 sm:py-20 lg:py-28">
+    <section id={idSecao} aria-labelledby={idTitulo} className="bg-[#eff6dc] py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="overflow-hidden rounded-[2rem] bg-emerald-950 p-6 sm:p-10 text-white ring-1 ring-emerald-900/20">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <CabecalhoSecao
-                id="titulo-quiz"
-                kicker="Desafio · Teste seus conhecimentos"
+                id={idTitulo}
+                kicker={kicker}
                 escuro
-                titulo="Quiz E-lixo Zero"
+                titulo={titulo}
               />
               <p className="mt-3 max-w-2xl text-emerald-50/85 leading-relaxed">
                 5 perguntas sobre o que você viu nesta página. Sem cadastro, sem sair do site.
@@ -141,18 +148,18 @@ export default function Quiz() {
             </div>
             <div className="flex flex-wrap gap-2">
               <p aria-live="polite" className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-semibold">
-                {respondidas}/{perguntas.length} respondidas
+                {respondidas}/{dados.length} respondidas
               </p>
               {recorde > 0 && (
                 <p className="rounded-full border border-lime-300/40 bg-lime-300/10 px-4 py-1.5 text-sm font-semibold text-lime-200">
-                  Recorde: {recorde}/{perguntas.length}
+                  Recorde: {recorde}/{dados.length}
                 </p>
               )}
             </div>
           </div>
 
           <ol className="mt-8 space-y-6">
-            {perguntas.map((p, i) => {
+            {dados.map((p, i) => {
               const respondida = i in respostas
               return (
                 <li key={p.pergunta} className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
@@ -225,9 +232,9 @@ export default function Quiz() {
           {finalizado && (
             <div role="status" className="mt-8 rounded-2xl bg-lime-300/10 p-6 text-center ring-1 ring-lime-300/40">
               <p className="text-2xl font-extrabold">
-                Você acertou {acertos} de {perguntas.length}!
+                Você acertou {acertos} de {dados.length}!
               </p>
-              <p className="mt-1 text-emerald-50/85">{mensagemQuiz(acertos, perguntas.length)}</p>
+              <p className="mt-1 text-emerald-50/85">{mensagemQuiz(acertos, dados.length)}</p>
               <div className="no-print mt-4 flex flex-wrap justify-center gap-2">
               <BotaoPrimario onClick={() => setRespostas({})} className="mt-4 px-6 py-2.5">
                 Tentar de novo
@@ -305,7 +312,7 @@ export default function Quiz() {
                       <p className="mt-3 text-sm text-stone-500">Concedido a</p>
                       <p className="mt-1 text-xl font-bold">{nome.trim()}</p>
                       <p className="mt-3 text-sm text-stone-600 leading-relaxed">
-                        Por gabaritar o Quiz E-lixo Zero (5/5) sobre lixo eletrônico e ODS.
+                        Por gabaritar o {titulo} ({dados.length}/{dados.length}) sobre lixo eletrônico e ODS.
                       </p>
                       <p className="mt-4 text-xs text-stone-500">
                         1.º ano K · Colégio Cruzeiro do Sul — São Miguel · {dataExtenso}
