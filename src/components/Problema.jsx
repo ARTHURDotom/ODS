@@ -1,6 +1,8 @@
 import { stats } from '../data.js'
 import Contador from './Contador.jsx'
 import Reveal from './Reveal.jsx'
+import CabecalhoSecao from './CabecalhoSecao.jsx'
+import Figura from './Figura.jsx'
 
 const icones = {
   globe: (
@@ -26,27 +28,25 @@ export default function Problema() {
         </span>
         <div className="grid items-center gap-10 lg:gap-16 lg:grid-cols-2">
           <div>
-            <p className="text-sm lg:text-base font-semibold uppercase tracking-widest text-emerald-700">01 · O problema</p>
-            <h2 id="titulo-problema" className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900">
-              O resíduo que <span className="marca-lima">mais cresce</span> no mundo
-            </h2>
+            <CabecalhoSecao
+              id="titulo-problema"
+              kicker="01 · O problema"
+              titulo={<>O resíduo que <span className="marca-lima">mais cresce</span> no mundo</>}
+            />
             <p className="mt-4 text-lg lg:text-xl text-stone-600 leading-relaxed">
               Celulares, notebooks, TVs, geladeiras, lâmpadas e pilhas: quando descartados sem
               controle, liberam <strong>chumbo, mercúrio e cádmio</strong> no solo e na água — e
               desperdiçam metais valiosos. O impacto é ambiental, climático e social.
             </p>
           </div>
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1000&auto=format&fit=crop"
-              alt="Notebook e dispositivos eletrônicos sobre uma mesa"
-              loading="lazy"
-              className="aspect-[16/10] w-full rounded-3xl object-cover shadow-lg shadow-emerald-900/15 ring-1 ring-stone-200 transition-all duration-500 ease-out hover:shadow-xl hover:scale-[1.01]"
-            />
-            <figcaption className="mt-2 text-xs lg:text-sm text-stone-500">
-              Foto: Unsplash. O consumo acelerado de eletrônicos alimenta o descarte.
-            </figcaption>
-          </figure>
+          <Figura
+            src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1000&auto=format&fit=crop"
+            alt="Notebook e dispositivos eletrônicos sobre uma mesa"
+            legenda="Foto: Unsplash. O consumo acelerado de eletrônicos alimenta o descarte."
+            aspect="aspect-[16/10]"
+            rounded="rounded-3xl"
+            imgClassName="shadow-lg shadow-emerald-900/15 ring-1 ring-stone-200 transition-all duration-500 ease-out hover:shadow-xl hover:scale-[1.01]"
+          />
         </div>
 
         <div className="mt-10 lg:mt-14 grid gap-5 lg:gap-6 sm:grid-cols-2 lg:grid-cols-4">

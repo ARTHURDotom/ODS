@@ -1,3 +1,6 @@
+import CabecalhoSecao from './CabecalhoSecao.jsx'
+import BotaoPrimario from './BotaoPrimario.jsx'
+
 // Jogo da turma (hospedado fora do site).
 const GAME_URL = 'https://bespoke-entremet-055b4e.netlify.app/'
 
@@ -39,29 +42,27 @@ export default function Jogo() {
           />
           <div className="relative grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-lime-200">
-                Bônus · Jogo interativo
-              </p>
-              <h2
+              <CabecalhoSecao
                 id="titulo-jogo"
-                className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"
-              >
-                Aprenda jogando: missão E-lixo Zero
-              </h2>
+                kicker="Bônus · Jogo interativo"
+                kickerClassName="text-sm font-semibold uppercase tracking-widest text-lime-200"
+                escuro
+                titulo="Aprenda jogando: missão E-lixo Zero"
+              />
               <p className="mt-4 text-emerald-50/90 leading-relaxed">
                 Um jogo feito pela turma do 1.º ano K para testar seus conhecimentos sobre
                 descarte correto de eletrônicos e os ODS da COP 30.
               </p>
 
               {pronto ? (
-                <a
+                <BotaoPrimario
                   href={GAME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-shine mt-6 inline-flex rounded-full bg-lime-300 px-7 py-3.5 font-semibold text-emerald-950 shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 hover:shadow-xl active:translate-y-0"
+                  className="mt-6 px-7 py-3.5"
                 >
                   Jogar agora <span aria-hidden="true">↗</span>
-                </a>
+                </BotaoPrimario>
               ) : (
                 <p
                   role="status"

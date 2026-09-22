@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== Base: rolagem, seleção e fundo ===== */
+
 html {
   scroll-behavior: smooth;
 }
@@ -29,7 +31,7 @@ section[id] {
   color: #052e16;
 }
 
-/* Foco visível — WCAG AA */
+/* ===== Acessibilidade: foco visível e skip link (WCAG AA) ===== */
 :focus-visible {
   outline: 3px solid #059669;
   outline-offset: 2px;
@@ -61,7 +63,7 @@ img {
   @apply bg-emerald-950 text-white px-4 py-2 rounded-lg font-semibold;
 }
 
-/* Faixa rolante */
+/* ===== Efeitos: marquee, marca-texto, grão e brilho ===== */
 @keyframes marquee {
   to {
     transform: translateX(-50%);

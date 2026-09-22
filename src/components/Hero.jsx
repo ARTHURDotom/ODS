@@ -1,4 +1,6 @@
 import Contador from './Contador.jsx'
+import BotaoPrimario from './BotaoPrimario.jsx'
+import Figura from './Figura.jsx'
 
 export default function Hero() {
   function moverLuz(e) {
@@ -62,12 +64,9 @@ export default function Hero() {
             ))}
           </ul>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a
-              href="#participe"
-              className="btn-shine inline-flex justify-center rounded-full bg-lime-300 px-7 py-3.5 lg:px-9 lg:py-4 lg:text-lg font-semibold text-emerald-950 shadow-lg shadow-emerald-950/30 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 hover:shadow-xl active:translate-y-0"
-            >
+            <BotaoPrimario href="#participe" className="px-7 py-3.5 lg:px-9 lg:py-4 lg:text-lg shadow-emerald-950/30">
               Participe da solução
-            </a>
+            </BotaoPrimario>
             <a
               href="#problema"
               className="inline-flex justify-center rounded-full border border-white/25 px-7 py-3.5 lg:px-9 lg:py-4 lg:text-lg font-medium text-white backdrop-blur transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white/10 active:translate-y-0"
@@ -99,16 +98,13 @@ export default function Hero() {
         </div>
 
         {/* Visual — foto + cartão flutuante */}
-        <figure className="relative">
-          <img
-            src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=1000&auto=format&fit=crop"
-            alt="Contentores coloridos para coleta seletiva e reciclagem de resíduos"
-            loading="lazy"
-            className="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-2xl shadow-emerald-950/40 ring-1 ring-white/20"
-          />
-          <figcaption className="mt-3 text-xs lg:text-sm text-emerald-50/60">
-            Foto: Unsplash. A coleta seletiva é o primeiro passo da economia circular.
-          </figcaption>
+        <Figura
+          src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=1000&auto=format&fit=crop"
+          alt="Contentores coloridos para coleta seletiva e reciclagem de resíduos"
+          legenda="Foto: Unsplash. A coleta seletiva é o primeiro passo da economia circular."
+          legendaClassName="mt-3 text-xs lg:text-sm text-emerald-50/60"
+          imgClassName="shadow-2xl shadow-emerald-950/40 ring-1 ring-white/20"
+        >
           <div className="absolute bottom-5 left-5 right-5 sm:left-8 sm:right-auto sm:max-w-sm rounded-2xl bg-white/95 px-5 py-4 lg:px-6 lg:py-5 shadow-xl shadow-emerald-950/20 backdrop-blur transition-all duration-300 ease-out hover:-translate-y-1">
             <p className="text-xs lg:text-sm font-semibold uppercase tracking-wider text-emerald-700">
               Economia circular
@@ -117,7 +113,7 @@ export default function Hero() {
               1 tonelada de placas de celular contém até <strong>100× mais ouro</strong> que 1 tonelada de minério.
             </p>
           </div>
-        </figure>
+        </Figura>
       </div>
     </section>
   )

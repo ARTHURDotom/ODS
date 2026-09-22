@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import useNaTela from '../useNaTela.js'
 
 /** Anima um número de 0 até o valor final ao entrar na tela. */
 export default function Contador({
@@ -9,32 +10,15 @@ export default function Contador({
   duracao = 1500,
   className = ''
 }) {
-  const ref = useRef(null)
   const [valor, setValor] = useState(0)
-  const [iniciou, setIniciou] = useState(false)
+  const [ref, iniciou] = useNaTela({ threshold: 0.4 })
 
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
+    if (!iniciou) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setValor(para)
       return
     }
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIniciou(true)
-          obs.disconnect()
-        }
-      },
-      { threshold: 0.4 }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [para])
-
-  useEffect(() => {
-    if (!iniciou) return
     let raf
     const t0 = performance.now()
     function passo(t) {

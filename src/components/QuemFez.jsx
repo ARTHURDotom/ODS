@@ -1,3 +1,6 @@
+import CabecalhoSecao from './CabecalhoSecao.jsx'
+import Figura from './Figura.jsx'
+
 export default function QuemFez() {
   return (
     <section
@@ -6,27 +9,21 @@ export default function QuemFez() {
       className="bg-[#eff6dc] py-16 sm:py-20 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 grid items-center gap-10 lg:grid-cols-2">
-        <figure className="order-1">
-          <img
-            src="./turma-1k.jpg"
-            alt="Foto da turma do 1.º ano K do Ensino Médio do Colégio Cruzeiro do Sul, São Miguel, reunida na escola"
-            loading="lazy"
-            className="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-lg ring-1 ring-stone-200/70 transition-all duration-500 ease-out hover:shadow-xl hover:scale-[1.01]"
-          />
-          <figcaption className="mt-2 text-xs text-stone-500">
-            Turma do 1.º ano K (2026) · Colégio Cruzeiro do Sul — São Miguel.
-          </figcaption>
-        </figure>
+        <Figura
+          className="order-1"
+          src="./turma-1k.jpg"
+          alt="Foto da turma do 1.º ano K do Ensino Médio do Colégio Cruzeiro do Sul, São Miguel, reunida na escola"
+          legenda="Turma do 1.º ano K (2026) · Colégio Cruzeiro do Sul — São Miguel."
+          legendaClassName="mt-2 text-xs text-stone-500"
+          imgClassName="shadow-lg ring-1 ring-stone-200/70 transition-all duration-500 ease-out hover:shadow-xl hover:scale-[1.01]"
+        />
         <div className="order-2">
-          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">
-            05 · Quem fez
-          </p>
-          <h2
+          <CabecalhoSecao
             id="titulo-quem-fez"
-            className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900"
-          >
-            Um trabalho feito pela <span className="marca-lima">nossa turma</span>
-          </h2>
+            kicker="05 · Quem fez"
+            kickerClassName="text-sm font-semibold uppercase tracking-widest text-emerald-700"
+            titulo={<>Um trabalho feito pela <span className="marca-lima">nossa turma</span></>}
+          />
           <p className="mt-4 text-lg text-stone-600 leading-relaxed">
             Esta landing page é um <strong>trabalho escolar</strong> sobre lixo eletrônico e
             Objetivos de Desenvolvimento Sustentável, feito pelos{' '}

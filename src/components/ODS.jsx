@@ -1,5 +1,6 @@
 import { ods } from '../data.js'
 import Reveal from './Reveal.jsx'
+import CabecalhoSecao from './CabecalhoSecao.jsx'
 
 export default function ODS() {
   function inclinar(e) {
@@ -21,10 +22,12 @@ export default function ODS() {
         <span aria-hidden="true" className="pointer-events-none absolute -top-10 right-0 select-none text-[9rem] lg:text-[15rem] font-extrabold leading-none text-emerald-900/[0.06]">
           12
         </span>
-        <p className="text-sm font-semibold uppercase tracking-widest text-teal-700">02 · ODS conectados</p>
-        <h2 id="titulo-ods" className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900">
-          Um aparelho liga <span className="marca-lima">quatro Objetivos</span> da ONU
-        </h2>
+        <CabecalhoSecao
+          id="titulo-ods"
+          kicker="02 · ODS conectados"
+          kickerClassName="text-sm font-semibold uppercase tracking-widest text-teal-700"
+          titulo={<>Um aparelho liga <span className="marca-lima">quatro Objetivos</span> da ONU</>}
+        />
         <p className="mt-4 max-w-3xl text-lg lg:text-xl text-stone-600 leading-relaxed">
           Os Objetivos de Desenvolvimento Sustentável são um pacto global até 2030. O lixo eletrônico
           atravessa pelo menos quatro deles — e a COP 30, na Amazônia, colocou a{' '}

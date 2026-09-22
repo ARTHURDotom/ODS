@@ -1,5 +1,6 @@
 import { passosDescarte, praticas } from '../data.js'
 import Reveal from './Reveal.jsx'
+import CabecalhoSecao from './CabecalhoSecao.jsx'
 
 export default function Solucoes() {
   return (
@@ -15,10 +16,12 @@ export default function Solucoes() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="text-sm lg:text-base font-semibold uppercase tracking-widest text-lime-200">03 · Soluções e ações</p>
-        <h2 id="titulo-solucoes" className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-          O que você pode fazer — hoje
-        </h2>
+        <CabecalhoSecao
+          id="titulo-solucoes"
+          kicker="03 · Soluções e ações"
+          escuro
+          titulo="O que você pode fazer — hoje"
+        />
         <p className="mt-4 max-w-3xl text-lg lg:text-xl text-emerald-50/85 leading-relaxed">
           A boa notícia: existe solução, e ela é simples. Reparar, devolver e reciclar já reduz
           poluição, emissões e extração de recursos. Sem alarmismo — com atitude.
@@ -38,7 +41,7 @@ export default function Solucoes() {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           <div>
-            <h3 className="text-xl lg:text-2xl font-bold">Como descartar eletrônicos corretamente</h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-white">Como descartar eletrônicos corretamente</h3>
             <ol className="mt-5 space-y-4">
               {passosDescarte.map((p, i) => (
                 <Reveal
@@ -64,7 +67,7 @@ export default function Solucoes() {
 
           <div className="space-y-5">
             <div>
-              <h3 className="text-xl lg:text-2xl font-bold">Práticas recomendadas</h3>
+              <h3 className="text-xl lg:text-2xl font-bold text-white">Práticas recomendadas</h3>
               <ul className="mt-5 grid gap-4">
                 {praticas.map((p, i) => (
                   <Reveal
