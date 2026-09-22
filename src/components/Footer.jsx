@@ -13,7 +13,7 @@ const linkSuave =
 
 export default function Footer() {
   return (
-    <footer className="sel-escuro diagonal-fina degrade-animado bg-gradient-to-b from-emerald-950 to-teal-950 border-t-2 border-lime-300/40 text-emerald-50/70" aria-label="Rodapé">
+    <footer className="sel-escuro diagonal-fina degrade-animado bg-emerald-950 bg-gradient-to-b from-emerald-950 to-teal-950 border-t-2 border-lime-300/40 text-emerald-50/90" aria-label="Rodapé">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 grid gap-10 md:grid-cols-3">
         <div>
           <p className="flex items-center gap-2 font-extrabold text-white text-lg">
@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-5 flex flex-col sm:flex-row gap-2 justify-between text-xs text-emerald-50/50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-5 flex flex-col sm:flex-row gap-2 justify-between text-xs text-emerald-50/80">
           <p>© 2026 E-lixo Zero · COP 30 — Belém do Pará, Brasil.</p>
           <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <span className="inline-flex items-center gap-1.5">
