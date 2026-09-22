@@ -40,25 +40,7 @@ Alunos do 1.º ano K do Ensino Médio — Colégio Cruzeiro do Sul, São Miguel.
 └── .github/workflows/deploy.yml  # build + deploy automático
 ```
 
-## Como rodar localmente
 
-```powershell
-npm install
-npm run dev    # abre em http://localhost:5173
-npm run build  # gera a pasta dist/ (validar antes de enviar)
-```
-
-## Como publicar
-
-Qualquer `push` na branch `main` republica o site automaticamente (~2 min):
-
-```powershell
-git add -A
-git commit -m "descrição da mudança"
-git push origin main
-```
-
-> Não commitar `dist/` nem `node_modules/` (já estão no `.gitignore`). Imagens/vídeos da turma ficam em `public/` e são referenciados com caminho relativo (`./...`), nunca absoluto, para funcionar no subcaminho `/ODS/`.
 
 ## Referências de dados
 
