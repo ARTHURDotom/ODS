@@ -7,9 +7,16 @@ export default function Jogo() {
   // Se for um link do Scratch (scratch.mit.edu/projects/...), usa o formato /embed.
   const embedUrl = !pronto
     ? ''
-    : GAME_URL.includes('scratch.mit.edu')
-      ? GAME_URL.trim().replace(/\/$/, '') + '/embed'
-      : GAME_URL.trim()
+    : (() => {
+        const trimmedUrl = GAME_URL.trim()
+        try {
+          const parsedUrl = new URL(trimmedUrl)
+          const isScratchHost = parsedUrl.hostname.toLowerCase() === 'scratch.mit.edu'
+          return isScratchHost ? trimmedUrl.replace(/\/$/, '') + '/embed' : trimmedUrl
+        } catch {
+          return ''
+        }
+      })()
 
   return (
     <section
