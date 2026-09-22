@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
 import { srcSetUnsplash } from '../imagens.js'
@@ -21,6 +22,18 @@ export default function Jogo() {
           return ''
         }
       })()
+
+  const molduraRef = useRef(null)
+
+  function telaCheia() {
+    const el = molduraRef.current
+    if (!el) return
+    if (document.fullscreenElement) {
+      document.exitFullscreen()
+    } else if (el.requestFullscreen) {
+      el.requestFullscreen()
+    }
+  }
 
   return (
     <section
@@ -59,14 +72,23 @@ export default function Jogo() {
               </p>
 
               {pronto ? (
-                <BotaoPrimario
-                  href={GAME_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 px-7 py-3.5"
-                >
-                  Jogar agora <span aria-hidden="true">↗</span>
-                </BotaoPrimario>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  <BotaoPrimario
+                    href={GAME_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-7 py-3.5"
+                  >
+                    Jogar agora <span aria-hidden="true">↗</span>
+                  </BotaoPrimario>
+                  <button
+                    type="button"
+                    onClick={telaCheia}
+                    className="rounded-full border border-white/25 px-6 py-3.5 font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white/10 active:translate-y-0"
+                  >
+                    Tela cheia
+                  </button>
+                </div>
               ) : (
                 <p
                   role="status"
@@ -79,6 +101,8 @@ export default function Jogo() {
             </div>
 
             <div
+              id="moldura-jogo"
+              ref={molduraRef}
               aria-hidden={!pronto}
               className="flex aspect-video items-center justify-center rounded-3xl border border-white/15 bg-white/5 backdrop-blur"
             >

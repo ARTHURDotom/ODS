@@ -166,6 +166,16 @@ html {
   }
 }
 
+/* Jogo em tela cheia */
+#moldura-jogo:fullscreen {
+  border-radius: 0;
+  height: 100%;
+}
+#moldura-jogo:fullscreen iframe {
+  height: 100%;
+  border-radius: 0;
+}
+
 /* Impressão: mostra somente o certificado */
 @media print {
   body * {

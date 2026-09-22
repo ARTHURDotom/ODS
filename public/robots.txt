@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arthurdotom.github.io/ODS/sitemap.xml
