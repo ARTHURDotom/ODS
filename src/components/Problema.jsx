@@ -1,5 +1,6 @@
 import { stats } from '../data.js'
 import Contador from './Contador.jsx'
+import Reveal from './Reveal.jsx'
 
 const icones = {
   globe: (
@@ -40,7 +41,7 @@ export default function Problema() {
               src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1000&auto=format&fit=crop"
               alt="Notebook e dispositivos eletrônicos sobre uma mesa"
               loading="lazy"
-              className="aspect-[16/10] w-full rounded-3xl object-cover shadow-lg shadow-stone-900/10 ring-1 ring-stone-200 transition-all duration-500 ease-out hover:shadow-xl hover:scale-[1.01]"
+              className="aspect-[16/10] w-full rounded-3xl object-cover shadow-lg shadow-emerald-900/15 ring-1 ring-stone-200 transition-all duration-500 ease-out hover:shadow-xl hover:scale-[1.01]"
             />
             <figcaption className="mt-2 text-xs lg:text-sm text-stone-500">
               Foto: Unsplash. O consumo acelerado de eletrônicos alimenta o descarte.
@@ -49,10 +50,10 @@ export default function Problema() {
         </div>
 
         <div className="mt-10 lg:mt-14 grid gap-5 lg:gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s) => (
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 90} className="h-full">
             <article
-              key={s.label}
-              className="rounded-2xl bg-emerald-950 p-6 lg:p-8 shadow-md ring-1 ring-emerald-900 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:ring-lime-300/50"
+              className="h-full rounded-2xl bg-emerald-950 p-6 lg:p-8 shadow-md ring-1 ring-emerald-900 transition-shadow duration-300 ease-out hover:shadow-xl hover:ring-lime-300/50"
             >
               <span className="inline-flex h-12 w-12 lg:h-14 lg:w-14 items-center justify-center rounded-xl bg-lime-300/15 text-lime-300" aria-hidden="true">
                 {icones[s.icon]}
@@ -68,6 +69,7 @@ export default function Problema() {
               <h3 className="mt-1 font-semibold lg:text-lg text-emerald-50">{s.label}</h3>
               <p className="mt-2 text-sm lg:text-base text-emerald-50/70 leading-relaxed">{s.detail}</p>
             </article>
+            </Reveal>
           ))}
         </div>
 
@@ -80,7 +82,7 @@ export default function Problema() {
               <li>US$ 91 bilhões em metais ficam “enterrados” no lixo a cada ano em vez de voltar à indústria.</li>
             </ul>
           </article>
-          <article className="rounded-2xl bg-white p-6 sm:p-8 lg:p-10 ring-1 ring-stone-200/80 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+          <article className="rounded-2xl bg-white p-6 sm:p-8 lg:p-10 ring-1 ring-stone-200/80 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-900/15">
             <h3 className="text-lg lg:text-2xl font-bold text-stone-900">Impacto social e de saúde</h3>
             <ul className="mt-4 space-y-3 text-sm sm:text-base lg:text-lg text-stone-600 leading-relaxed list-disc pl-5">
               <li>Milhões de pessoas — incluindo crianças — manipulam e-lixo informalmente, expostas a fumaça tóxica e queimaduras.</li>

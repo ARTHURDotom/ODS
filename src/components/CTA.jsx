@@ -45,7 +45,7 @@ export default function CTA() {
               href="https://abree.org.br/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex justify-center rounded-full bg-lime-300 px-7 py-3.5 lg:px-9 lg:py-4 font-semibold text-emerald-950 shadow-lg shadow-emerald-950/40 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 hover:shadow-xl active:translate-y-0"
+              className="btn-shine inline-flex justify-center rounded-full bg-lime-300 px-7 py-3.5 lg:px-9 lg:py-4 font-semibold text-emerald-950 shadow-lg shadow-emerald-950/40 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 hover:shadow-xl active:translate-y-0"
             >
               Encontrar ponto de coleta
             </a>

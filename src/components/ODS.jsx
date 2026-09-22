@@ -1,4 +1,5 @@
 import { ods } from '../data.js'
+import Reveal from './Reveal.jsx'
 
 export default function ODS() {
   function inclinar(e) {
@@ -31,12 +32,12 @@ export default function ODS() {
         </p>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {ods.map((o) => (
+          {ods.map((o, i) => (
+            <Reveal key={o.numero} delay={i * 90} className="h-full">
             <article
-              key={o.numero}
               onMouseMove={inclinar}
               onMouseLeave={zerar}
-              className={`rounded-2xl border p-6 sm:p-7 ${o.corFundo} ${o.borda} transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg`}
+              className={`h-full rounded-2xl border p-6 sm:p-7 ${o.corFundo} ${o.borda} transition-shadow duration-300 ease-out hover:shadow-lg hover:shadow-emerald-900/10`}
             >
               <div className="flex items-center gap-3">
                 <span
@@ -55,6 +56,7 @@ export default function ODS() {
                 → {o.conexao}
               </p>
             </article>
+            </Reveal>
           ))}
         </div>
 

@@ -32,6 +32,7 @@ export default function App() {
         <Reveal><Jogo /></Reveal>
         <Reveal><Quiz /></Reveal>
         <Reveal><CTA /></Reveal>
+        <DivisoriaOnda invertida />
         <Reveal><QuemFez /></Reveal>
       </main>
       <Footer />

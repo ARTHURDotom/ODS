@@ -140,7 +140,7 @@ export default function Quiz() {
               <button
                 type="button"
                 onClick={() => setRespostas({})}
-                className="mt-4 rounded-full bg-lime-300 px-6 py-2.5 font-semibold text-emerald-950 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 active:translate-y-0"
+                className="btn-shine mt-4 rounded-full bg-lime-300 px-6 py-2.5 font-semibold text-emerald-950 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 active:translate-y-0"
               >
                 Tentar de novo
               </button>

@@ -1,11 +1,19 @@
 import Contador from './Contador.jsx'
 
 export default function Hero() {
+  function moverLuz(e) {
+    const el = e.currentTarget
+    const r = el.getBoundingClientRect()
+    el.style.setProperty('--mx', `${e.clientX - r.left}px`)
+    el.style.setProperty('--my', `${e.clientY - r.top}px`)
+  }
+
   return (
     <section
       id="inicio"
       aria-labelledby="titulo-hero"
-      className="grain relative overflow-hidden bg-emerald-950 text-white"
+      onMouseMove={moverLuz}
+      className="grain group relative overflow-hidden bg-emerald-950 text-white"
     >
       {/* foto de fundo + véu em degradê */}
       <img
@@ -18,6 +26,10 @@ export default function Hero() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-950/95 via-emerald-950/85 to-teal-950/70"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 hidden [@media(hover:hover)]:block [@media(prefers-reduced-motion:reduce)]:hidden [background:radial-gradient(420px_circle_at_var(--mx,50%)_var(--my,50%),rgba(52,211,153,0.20),transparent_70%)]"
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 xl:py-28 grid gap-12 lg:gap-16 lg:grid-cols-2 lg:items-center">
@@ -52,7 +64,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
               href="#participe"
-              className="inline-flex justify-center rounded-full bg-lime-300 px-7 py-3.5 lg:px-9 lg:py-4 lg:text-lg font-semibold text-emerald-950 shadow-lg shadow-emerald-950/30 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 hover:shadow-xl active:translate-y-0"
+              className="btn-shine inline-flex justify-center rounded-full bg-lime-300 px-7 py-3.5 lg:px-9 lg:py-4 lg:text-lg font-semibold text-emerald-950 shadow-lg shadow-emerald-950/30 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 hover:shadow-xl active:translate-y-0"
             >
               Participe da solução
             </a>

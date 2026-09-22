@@ -58,7 +58,7 @@ export default function Jogo() {
                   href={GAME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex rounded-full bg-lime-300 px-7 py-3.5 font-semibold text-emerald-950 shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 hover:shadow-xl active:translate-y-0"
+                  className="btn-shine mt-6 inline-flex rounded-full bg-lime-300 px-7 py-3.5 font-semibold text-emerald-950 shadow-lg transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-200 hover:shadow-xl active:translate-y-0"
                 >
                   Jogar agora <span aria-hidden="true">↗</span>
                 </a>

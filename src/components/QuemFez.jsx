@@ -3,7 +3,7 @@ export default function QuemFez() {
     <section
       id="quem-fez"
       aria-labelledby="titulo-quem-fez"
-      className="bg-emerald-50/60 py-16 sm:py-20 lg:py-28"
+      className="bg-[#eff6dc] py-16 sm:py-20 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 grid items-center gap-10 lg:grid-cols-2">
         <figure className="order-1">
@@ -41,7 +41,7 @@ export default function QuemFez() {
             ].map(([termo, valor]) => (
               <div
                 key={termo}
-                className="rounded-2xl bg-white px-4 py-3 ring-1 ring-stone-200/70 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md"
+                className="rounded-2xl bg-white px-4 py-3 ring-1 ring-stone-200/70 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-emerald-900/15"
               >
                 <dt className="text-xs font-semibold uppercase tracking-wider text-stone-500">{termo}</dt>
                 <dd className="mt-1 font-bold text-stone-900">{valor}</dd>
@@ -49,7 +49,7 @@ export default function QuemFez() {
             ))}
           </dl>
 
-          <address className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-stone-200/70 not-italic transition-all duration-300 ease-out hover:shadow-md">
+          <address className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-stone-200/70 not-italic transition-all duration-300 ease-out hover:shadow-md hover:shadow-emerald-900/15">
             <p className="text-xs font-semibold uppercase tracking-wider text-stone-500">
               Onde fica o colégio
             </p>
