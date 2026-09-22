@@ -51,6 +51,7 @@ export default function Footer() {
               <li><a href="#ods" className={linkSuave}>ODS</a></li>
               <li><a href="#solucoes" className={linkSuave}>Soluções</a></li>
               <li><a href="#jogo" className={linkSuave}>Jogo</a></li>
+              <li><a href="#quiz" className={linkSuave}>Quiz</a></li>
               <li><a href="#participe" className={linkSuave}>Participe</a></li>
               <li><a href="#quem-fez" className={linkSuave}>Quem fez</a></li>
             </ul>

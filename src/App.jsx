@@ -4,6 +4,7 @@ import Problema from './components/Problema.jsx'
 import ODS from './components/ODS.jsx'
 import Solucoes from './components/Solucoes.jsx'
 import Jogo from './components/Jogo.jsx'
+import Quiz from './components/Quiz.jsx'
 import CTA from './components/CTA.jsx'
 import QuemFez from './components/QuemFez.jsx'
 import Footer from './components/Footer.jsx'
@@ -23,6 +24,7 @@ export default function App() {
         <Reveal><ODS /></Reveal>
         <Reveal><Solucoes /></Reveal>
         <Reveal><Jogo /></Reveal>
+        <Reveal><Quiz /></Reveal>
         <Reveal><CTA /></Reveal>
         <Reveal><QuemFez /></Reveal>
       </main>
