@@ -1,0 +1,23 @@
+{
+  "name": "E-lixo Zero · COP 30",
+  "short_name": "E-lixo Zero",
+  "description": "Trabalho escolar sobre lixo eletrônico e ODS — 1.º ano K, Colégio Cruzeiro do Sul",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eff6dc",
+  "theme_color": "#052e16",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

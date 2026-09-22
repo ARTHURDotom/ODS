@@ -29,7 +29,7 @@ export default function BarraProgresso() {
       ref={ref}
       aria-hidden="true"
       style={{ transform: 'scaleX(0)' }}
-      className="fixed inset-x-0 top-0 z-[60] h-1 origin-left bg-lime-300"
+      className="no-print fixed inset-x-0 top-0 z-[60] h-1 origin-left bg-lime-300"
     />
   )
 }

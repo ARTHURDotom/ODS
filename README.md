@@ -22,7 +22,8 @@ Alunos do 1.º ano K do Ensino Médio — Colégio Cruzeiro do Sul, São Miguel.
 
 - **React 18 + Vite 5** (JavaScript, sem TypeScript)
 - **Tailwind CSS 3** (mobile-first, paleta sustentável: verde-esmeralda, lima, `#eff6dc`)
-- **motion** (animações de entrada respeitando `prefers-reduced-motion`)
+- **Animações em CSS puro** (respeitando `prefers-reduced-motion`)
+- **Vitest + Testing Library** (testes: `npm test`)
 - Hospedagem: **GitHub Pages** com deploy automático via GitHub Actions
 
 ## Estrutura
@@ -36,7 +37,8 @@ Alunos do 1.º ano K do Ensino Médio — Colégio Cruzeiro do Sul, São Miguel.
 │   ├── App.jsx             # composição das seções
 │   ├── data.js             # estatísticas, ODS, passos e práticas
 │   └── components/         # Header, Hero, Problema, ODS, Solucoes,
-│                           # Jogo, Quiz, CTA, QuemFez, Footer, ...
+│                           # Jogo, Quiz, Enquete, Memoria, Jornada, Mitos,
+│                           # Calculadora, Checklist, CTA, QuemFez, Faq, Sobre, Footer, ...
 └── .github/workflows/deploy.yml  # build + deploy automático
 ```
 

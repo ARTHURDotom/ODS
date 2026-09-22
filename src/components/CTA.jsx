@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
 import Figura from './Figura.jsx'
@@ -9,6 +10,34 @@ const beneficios = [
 ]
 
 export default function CTA() {
+  const [buscando, setBuscando] = useState(false)
+  const [erroGeo, setErroGeo] = useState('')
+
+  function buscarPev() {
+    if (!('geolocation' in navigator)) {
+      setErroGeo('Seu navegador não tem localização. Use o botão da ABREE.')
+      return
+    }
+    setBuscando(true)
+    setErroGeo('')
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setBuscando(false)
+        const { latitude, longitude } = pos.coords
+        window.open(
+          `https://www.google.com/maps/search/ponto+de+coleta+lixo+eletronico/@${latitude},${longitude},14z`,
+          '_blank',
+          'noopener'
+        )
+      },
+      () => {
+        setBuscando(false)
+        setErroGeo('Não consegui sua localização. Permita o acesso ou use o botão da ABREE.')
+      },
+      { timeout: 10000 }
+    )
+  }
+
   return (
     <section
       id="participe"
@@ -56,7 +85,20 @@ export default function CTA() {
             >
               Como descartar
             </a>
+            <button
+              type="button"
+              onClick={buscarPev}
+              disabled={buscando}
+              className="inline-flex justify-center rounded-full border border-lime-300/50 px-7 py-3.5 lg:px-9 lg:py-4 font-semibold text-lime-200 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-lime-300/10 active:translate-y-0 disabled:opacity-60"
+            >
+              {buscando ? 'Buscando…' : 'PEVs perto de mim'}
+            </button>
           </div>
+          {erroGeo && (
+            <p role="alert" className="mt-3 text-sm font-medium text-red-200">
+              {erroGeo}
+            </p>
+          )}
         </div>
 
         <Figura

@@ -8,3 +8,19 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>
 )
+
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {})
+  })
+}
+
+window.addEventListener('beforeprint', () => {
+  document.querySelectorAll('details').forEach((d) => {
+    d.open = true
+  })
+})
+
+window.addEventListener('afterprint', () => {
+  document.body.classList.remove('print-cert')
+})

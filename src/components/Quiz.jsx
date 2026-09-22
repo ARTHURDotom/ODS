@@ -1,24 +1,109 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { perguntas, mensagemQuiz } from '../quizData.js'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
+
+const TEMPO_LIMITE = 30
 
 export default function Quiz() {
   const [respostas, setRespostas] = useState({})
   const [nome, setNome] = useState('')
   const [copiado, setCopiado] = useState(false)
+  const [tempo, setTempo] = useState(TEMPO_LIMITE)
+  const [recorde, setRecorde] = useState(() => {
+    try {
+      return Number(localStorage.getItem('quiz-recorde') || 0)
+    } catch {
+      return 0
+    }
+  })
   const respondidas = Object.keys(respostas).length
   const acertos = perguntas.filter((p, i) => respostas[i] === p.correta).length
   const finalizado = respondidas === perguntas.length
   const gabaritou = finalizado && acertos === perguntas.length
   const nomeValido = nome.trim().length >= 2
+  const atual = perguntas.findIndex((_, i) => !(i in respostas))
   const dataExtenso = new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })
 
+  useEffect(() => {
+    if (finalizado) return
+    setTempo(TEMPO_LIMITE)
+    const id = setInterval(() => {
+      setTempo((t) => {
+        if (t <= 1) {
+          clearInterval(id)
+          setRespostas((r) => (atual in r ? r : { ...r, [atual]: -1 }))
+          return TEMPO_LIMITE
+        }
+        return t - 1
+      })
+    }, 1000)
+    return () => clearInterval(id)
+  }, [respondidas, finalizado, atual])
+
+  useEffect(() => {
+    if (finalizado && acertos > recorde) {
+      setRecorde(acertos)
+      try {
+        localStorage.setItem('quiz-recorde', String(acertos))
+      } catch {
+        /* sem armazenamento */
+      }
+    }
+  }, [finalizado, acertos, recorde])
+
+  function gerarCanvas() {
+    const c = document.createElement('canvas')
+    c.width = 1200
+    c.height = 630
+    const x = c.getContext('2d')
+    x.fillStyle = '#eff6dc'
+    x.fillRect(0, 0, 1200, 630)
+    x.strokeStyle = '#047857'
+    x.lineWidth = 16
+    x.strokeRect(28, 28, 1144, 574)
+    x.textAlign = 'center'
+    x.fillStyle = '#047857'
+    x.font = '700 40px system-ui, sans-serif'
+    x.fillText('CERTIFICADO · E-LIXO ZERO', 600, 130)
+    x.fillStyle = '#022c22'
+    x.font = '800 64px system-ui, sans-serif'
+    x.fillText('Guardião E-lixo Zero', 600, 220)
+    x.fillStyle = '#1c1917'
+    x.font = '800 56px system-ui, sans-serif'
+    x.fillText(nome.trim().slice(0, 40), 600, 330)
+    x.fillStyle = '#57534e'
+    x.font = '400 32px system-ui, sans-serif'
+    x.fillText('Gabaritou o Quiz E-lixo Zero (5/5)', 600, 410)
+    x.fillText(`1.º ano K · Colégio Cruzeiro do Sul · ${dataExtenso}`, 600, 465)
+    return c
+  }
+
+  function baixarPNG() {
+    const link = document.createElement('a')
+    link.download = 'certificado-elixo-zero.png'
+    link.href = gerarCanvas().toDataURL('image/png')
+    link.click()
+  }
+
   async function compartilhar() {
-    const texto = `Gabaritei o Quiz E-lixo Zero (${acertos}/${perguntas.length})! Teste você também: ${window.location.href}`
+    const url = window.location.href
+    const texto = `Fiz ${acertos}/${perguntas.length} no Quiz E-lixo Zero! Teste você também: ${url}`
+    if (gabaritou && navigator.canShare) {
+      try {
+        const blob = await new Promise((resolve) => gerarCanvas().toBlob(resolve, 'image/png'))
+        const arquivo = new File([blob], 'certificado-elixo-zero.png', { type: 'image/png' })
+        if (blob && navigator.canShare({ files: [arquivo] })) {
+          await navigator.share({ title: 'Quiz E-lixo Zero', text: texto, files: [arquivo] })
+          return
+        }
+      } catch {
+        /* cancela ou falha — tenta só texto */
+      }
+    }
     if (navigator.share) {
       try {
-        await navigator.share({ title: 'Quiz E-lixo Zero', text: texto, url: window.location.href })
+        await navigator.share({ title: 'Quiz E-lixo Zero', text: texto, url })
         return
       } catch {
         /* usuário cancelou — não faz nada */
@@ -54,9 +139,16 @@ export default function Quiz() {
                 5 perguntas sobre o que você viu nesta página. Sem cadastro, sem sair do site.
               </p>
             </div>
-            <p aria-live="polite" className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-semibold">
-              {respondidas}/{perguntas.length} respondidas
-            </p>
+            <div className="flex flex-wrap gap-2">
+              <p aria-live="polite" className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-semibold">
+                {respondidas}/{perguntas.length} respondidas
+              </p>
+              {recorde > 0 && (
+                <p className="rounded-full border border-lime-300/40 bg-lime-300/10 px-4 py-1.5 text-sm font-semibold text-lime-200">
+                  Recorde: {recorde}/{perguntas.length}
+                </p>
+              )}
+            </div>
           </div>
 
           <ol className="mt-8 space-y-6">
@@ -69,6 +161,20 @@ export default function Quiz() {
                       <span className="mr-2 text-lime-300">{i + 1}.</span>
                       {p.pergunta}
                     </legend>
+                    {i === atual && !respondida && (
+                      <div className="mt-3" role="timer" aria-label={`Tempo restante: ${tempo} segundos`}>
+                        <div className="flex items-center justify-between text-xs font-bold text-lime-200">
+                          <span aria-hidden="true">⏱ Tempo</span>
+                          <span>{tempo}s</span>
+                        </div>
+                        <div className="mt-1 h-2 overflow-hidden rounded-full bg-white/10">
+                          <div
+                            className="h-full rounded-full bg-lime-300 transition-all duration-1000 ease-linear"
+                            style={{ width: `${(tempo / TEMPO_LIMITE) * 100}%` }}
+                          />
+                        </div>
+                      </div>
+                    )}
                     <div className="mt-3 grid gap-2">
                       {p.opcoes.map((opcao, j) => {
                         const escolhida = respostas[i] === j
@@ -107,7 +213,7 @@ export default function Quiz() {
                     </div>
                     {respondida && (
                       <p className="mt-3 rounded-xl bg-white/5 px-4 py-2.5 text-sm text-emerald-50/80 leading-relaxed">
-                        {respostas[i] === p.correta ? 'Acertou! ' : 'Não foi dessa vez. '}{p.explicacao}
+                        {respostas[i] === p.correta ? 'Acertou! ' : respostas[i] === -1 ? 'Tempo esgotado! ' : 'Não foi dessa vez. '}{p.explicacao}
                       </p>
                     )}
                   </fieldset>
@@ -122,7 +228,7 @@ export default function Quiz() {
                 Você acertou {acertos} de {perguntas.length}!
               </p>
               <p className="mt-1 text-emerald-50/85">{mensagemQuiz(acertos, perguntas.length)}</p>
-              <div className="mt-4 flex flex-wrap justify-center gap-2">
+              <div className="no-print mt-4 flex flex-wrap justify-center gap-2">
               <BotaoPrimario onClick={() => setRespostas({})} className="mt-4 px-6 py-2.5">
                 Tentar de novo
               </BotaoPrimario>
@@ -145,7 +251,7 @@ export default function Quiz() {
                   <label htmlFor="nome-certificado" className="block font-bold">
                     Digite seu nome para gerar o certificado
                   </label>
-                  <div className="mx-auto mt-3 flex max-w-md flex-col sm:flex-row gap-2">
+                  <div className="no-print mx-auto mt-3 flex max-w-md flex-col sm:flex-row gap-2">
                     <input
                       id="nome-certificado"
                       type="text"
@@ -158,11 +264,22 @@ export default function Quiz() {
                     />
                     <button
                       type="button"
-                      onClick={() => window.print()}
+                      onClick={() => {
+                        document.body.classList.add('print-cert')
+                        window.print()
+                      }}
                       disabled={!nomeValido}
                       className="shrink-0 rounded-full bg-white px-6 py-2.5 font-semibold text-emerald-950 transition-all duration-300 ease-out hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Imprimir certificado
+                    </button>
+                    <button
+                      type="button"
+                      onClick={baixarPNG}
+                      disabled={!nomeValido}
+                      className="shrink-0 rounded-full border border-white/25 px-6 py-2.5 font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Baixar PNG
                     </button>
                   </div>
                   {!nomeValido && (

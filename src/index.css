@@ -84,6 +84,12 @@ img {
     transform: translateX(-50%);
   }
 }
+@keyframes splash-saida {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 .animate-marquee {
   animation: marquee 24s linear infinite;
 }
@@ -176,16 +182,31 @@ html {
   border-radius: 0;
 }
 
+/* Impressão do site: esconde navegação e mídia, evita quebras */
+@media print {
+  body:not(.print-cert) header,
+  body:not(.print-cert) footer,
+  body:not(.print-cert) video,
+  body:not(.print-cert) iframe,
+  body:not(.print-cert) div[vw],
+  body:not(.print-cert) .no-print {
+    display: none !important;
+  }
+  body:not(.print-cert) section {
+    break-inside: avoid;
+  }
+}
+
 /* Impressão: mostra somente o certificado */
 @media print {
-  body * {
+  body.print-cert * {
     visibility: hidden;
   }
-  #certificado,
-  #certificado * {
+  body.print-cert #certificado,
+  body.print-cert #certificado * {
     visibility: visible;
   }
-  #certificado {
+  body.print-cert #certificado {
     position: fixed;
     inset: 0;
     margin: auto;

@@ -1,7 +1,17 @@
+import { useEffect, useState } from 'react'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import Figura from './Figura.jsx'
 
 export default function QuemFez() {
+  const [videoSrc, setVideoSrc] = useState('./videos/turma.mp4')
+
+  useEffect(() => {
+    const telaPequena = window.matchMedia('(max-width: 640px)').matches
+    const conexao = navigator.connection || {}
+    if (telaPequena || conexao.saveData || String(conexao.effectiveType || '').includes('2g')) {
+      setVideoSrc('./videos/turma-480p.mp4')
+    }
+  }, [])
   return (
     <section
       id="quem-fez"
@@ -111,7 +121,7 @@ export default function QuemFez() {
         </div>
         <figure className="mx-auto w-full max-w-xs sm:max-w-sm">
           <video
-            src="./videos/turma.mp4"
+            src={videoSrc}
             poster="./videos/turma-poster.jpg"
             controls
             preload="none"

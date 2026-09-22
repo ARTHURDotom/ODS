@@ -1,3 +1,5 @@
+import Emblema from './Emblema.jsx'
+
 const saibaMais = [
   ['Global E-waste Monitor 2024', 'https://globalewaste.org/'],
   ['ODS — Nações Unidas', 'https://brasil.un.org/pt-br/sdgs'],
@@ -13,11 +15,27 @@ export default function Footer() {
     <footer className="bg-gradient-to-b from-emerald-950 to-teal-950 border-t-2 border-lime-300/40 text-emerald-50/70" aria-label="Rodapé">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 grid gap-10 md:grid-cols-3">
         <div>
-          <p className="font-extrabold text-white text-lg">E-lixo Zero · COP 30</p>
+          <p className="flex items-center gap-2 font-extrabold text-white text-lg">
+            <Emblema tamanho={28} className="text-lime-300" />
+            E-lixo Zero · COP 30
+          </p>
           <p className="mt-3 text-sm leading-relaxed">
             Landing page educacional sobre lixo eletrônico e Objetivos de Desenvolvimento
             Sustentável, com foco na COP 30 em Belém do Pará. Conteúdo informativo, sem fins comerciais.
           </p>
+          <figure className="mt-4 flex items-center gap-3">
+            <img
+              src="./qr-site.svg"
+              alt="QR code para abrir o site E-lixo Zero no celular"
+              loading="lazy"
+              width="96"
+              height="96"
+              className="h-24 w-24 rounded-xl bg-[#eff6dc] p-1.5"
+            />
+            <figcaption className="text-xs leading-relaxed">
+              Aponte a câmera para visitar<br />e cole no mural da escola.
+            </figcaption>
+          </figure>
         </div>
         <div>
           <h2 className="font-semibold text-white text-sm uppercase tracking-wider">Saiba mais</h2>
@@ -55,6 +73,7 @@ export default function Footer() {
               <li><a href="#participe" className={linkSuave}>Participe</a></li>
               <li><a href="#quem-fez" className={linkSuave}>Quem fez</a></li>
               <li><a href="#faq" className={linkSuave}>Dúvidas</a></li>
+              <li><a href="#sobre" className={linkSuave}>Sobre</a></li>
             </ul>
           </nav>
         </div>
