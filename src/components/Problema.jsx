@@ -1,4 +1,5 @@
 import { stats } from '../data.js'
+import Contador from './Contador.jsx'
 
 const icones = {
   globe: (
@@ -53,7 +54,14 @@ export default function Problema() {
               <span className="inline-flex h-12 w-12 lg:h-14 lg:w-14 items-center justify-center rounded-xl bg-lime-300/15 text-lime-300" aria-hidden="true">
                 {icones[s.icon]}
               </span>
-              <p className="mt-4 text-3xl lg:text-4xl font-extrabold text-white">{s.value}</p>
+              <p className="mt-4 text-3xl lg:text-4xl font-extrabold text-white">
+                <Contador
+                  para={s.numero}
+                  decimais={s.decimais}
+                  prefixo={s.prefixo}
+                  sufixo={s.sufixo}
+                />
+              </p>
               <h3 className="mt-1 font-semibold lg:text-lg text-emerald-50">{s.label}</h3>
               <p className="mt-2 text-sm lg:text-base text-emerald-50/70 leading-relaxed">{s.detail}</p>
             </article>

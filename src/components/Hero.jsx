@@ -1,3 +1,5 @@
+import Contador from './Contador.jsx'
+
 export default function Hero() {
   return (
     <section
@@ -63,17 +65,19 @@ export default function Hero() {
           </div>
           <dl className="mt-10 grid grid-cols-3 gap-3 max-w-lg text-center">
             {[
-              ['62 milhões', 'de toneladas em 2022'],
-              ['22%', 'reciclado'],
-              ['82 milhões', 'de toneladas em 2030']
-            ].map(([v, l]) => (
+              { para: 62, sufixo: ' milhões', legenda: 'de toneladas em 2022' },
+              { para: 22, sufixo: '%', legenda: 'reciclado' },
+              { para: 82, sufixo: ' milhões', legenda: 'de toneladas em 2030' }
+            ].map((s) => (
               <div
-                key={l}
+                key={s.legenda}
                 className="rounded-2xl border border-white/15 bg-white/10 px-2 py-3 lg:py-4 backdrop-blur transition-all duration-300 ease-out hover:bg-white/15"
               >
-                <dt className="sr-only">{l}</dt>
-                <dd className="text-2xl lg:text-3xl font-bold text-white">{v}</dd>
-                <dd className="mt-1 text-xs lg:text-sm text-emerald-50/80">{l}</dd>
+                <dt className="sr-only">{s.legenda}</dt>
+                <dd className="text-2xl lg:text-3xl font-bold text-white">
+                  <Contador para={s.para} sufixo={s.sufixo} duracao={1200} />
+                </dd>
+                <dd className="mt-1 text-xs lg:text-sm text-emerald-50/80">{s.legenda}</dd>
               </div>
             ))}
           </dl>

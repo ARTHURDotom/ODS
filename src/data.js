@@ -1,24 +1,36 @@
 export const stats = [
   {
-    value: '62 milhões',
+    numero: 62,
+    decimais: 0,
+    prefixo: '',
+    sufixo: ' milhões',
     label: 'de toneladas de lixo eletrônico geradas em 2022',
     detail: 'Alta de 82% desde 2010. É o resíduo sólido que mais cresce no planeta.',
     icon: 'globe'
   },
   {
-    value: '22,3%',
+    numero: 22.3,
+    decimais: 1,
+    prefixo: '',
+    sufixo: '%',
     label: 'foi coletado e reciclado formalmente',
     detail: 'Todo o resto tem destino desconhecido: aterros, lixões ou comércio informal.',
     icon: 'recycle'
   },
   {
-    value: '82 milhões',
+    numero: 82,
+    decimais: 0,
+    prefixo: '',
+    sufixo: ' milhões',
     label: 'de toneladas é a projeção para 2030 se nada mudar',
     detail: 'O crescimento do consumo supera o avanço da reciclagem ano após ano.',
     icon: 'trend'
   },
   {
-    value: '~3%',
+    numero: 3,
+    decimais: 0,
+    prefixo: '~',
+    sufixo: '%',
     label: 'é a taxa estimada de reciclagem no Brasil',
     detail: 'O país gera cerca de 2,1 milhões de toneladas por ano e tem logística reversa em expansão.',
     icon: 'pin'
