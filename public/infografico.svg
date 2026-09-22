@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Infográfico do ciclo da economia circular">
+  <rect width="1200" height="630" rx="32" fill="#eff6dc"/>
+  <rect x="24" y="24" width="1152" height="582" rx="24" fill="none" stroke="#047857" stroke-width="8"/>
+  <text x="600" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="800" fill="#022c22">Economia circular ♻️</text>
+  <g font-family="system-ui, sans-serif" text-anchor="middle">
+    <rect x="70" y="200" width="230" height="150" rx="20" fill="#ffffff" stroke="#047857" stroke-width="5"/>
+    <text x="185" y="265" font-size="44">🔧</text>
+    <text x="185" y="315" font-size="30" font-weight="800" fill="#022c22">Reparar</text>
+    <rect x="350" y="200" width="230" height="150" rx="20" fill="#ffffff" stroke="#047857" stroke-width="5"/>
+    <text x="465" y="265" font-size="44">🤝</text>
+    <text x="465" y="315" font-size="30" font-weight="800" fill="#022c22">Reutilizar</text>
+    <rect x="630" y="200" width="230" height="150" rx="20" fill="#ffffff" stroke="#047857" stroke-width="5"/>
+    <text x="745" y="265" font-size="44">📦</text>
+    <text x="745" y="315" font-size="30" font-weight="800" fill="#022c22">Devolver</text>
+    <rect x="910" y="200" width="230" height="150" rx="20" fill="#ffffff" stroke="#047857" stroke-width="5"/>
+    <text x="1025" y="265" font-size="44">🏭</text>
+    <text x="1025" y="315" font-size="30" font-weight="800" fill="#022c22">Reciclar</text>
+  </g>
+  <text x="600" y="440" text-anchor="middle" font-family="system-ui, sans-serif" font-size="34" font-weight="700" fill="#047857">1.º ano K · Colégio Cruzeiro do Sul · COP 30</text>
+  <text x="600" y="500" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" fill="#57534e">O melhor resíduo é o que não existe.</text>
+  <text x="600" y="560" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" fill="#78716c">arthurdotom.github.io/ODS</text>
+</svg>

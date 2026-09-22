@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Busca from './Busca.jsx'
 
 const links = [
   { id: 'problema', href: '#problema', label: 'O problema' },
@@ -10,8 +11,10 @@ const links = [
 
 export default function Header() {
   const [aberto, setAberto] = useState(false)
+  const [buscaAberta, setBuscaAberta] = useState(false)
   const [ativa, setAtiva] = useState('inicio')
   const [rolado, setRolado] = useState(false)
+  const rotuloAtivo = links.find((l) => l.id === ativa)?.label || 'Início'
 
   useEffect(() => {
     const ids = ['inicio', ...links.map((l) => l.id)]
@@ -51,11 +54,25 @@ export default function Header() {
             <span className="ml-2 hidden sm:inline-block rounded-full bg-white/10 px-2 py-0.5 text-xs font-medium text-emerald-100 align-middle">
               COP 30 · Belém
             </span>
+            <span aria-live="polite" className="ml-2 hidden text-xs font-medium text-emerald-50/60 xl:inline">
+              · {rotuloAtivo}
+            </span>
           </span>
         </a>
 
         <nav aria-label="Navegação principal" className="hidden md:block">
           <ul className="flex items-center gap-6 text-sm font-medium text-emerald-50/80">
+            <li>
+              <button
+                type="button"
+                onClick={() => setBuscaAberta((v) => !v)}
+                aria-expanded={buscaAberta}
+                aria-label="Buscar no site"
+                className="rounded-lg p-1.5 text-white transition-colors duration-300 hover:bg-white/10"
+              >
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></svg>
+              </button>
+            </li>
             {links.map((l) => (
               <li key={l.href}>
                 <a
@@ -94,9 +111,20 @@ export default function Header() {
         </button>
       </div>
 
+      {buscaAberta && (
+        <div className="border-t border-white/10 px-4 py-3">
+          <div className="mx-auto max-w-7xl">
+            <Busca aoNavegar={() => { setBuscaAberta(false); setAberto(false) }} />
+          </div>
+        </div>
+      )}
+
       {aberto && (
         <nav id="menu-mobile" aria-label="Menu móvel" className="md:hidden border-t border-white/10 px-4 py-3">
           <ul className="space-y-1 text-emerald-50 font-medium">
+            <li className="px-1 pb-2">
+              <Busca aoNavegar={() => setAberto(false)} />
+            </li>
             {links.map((l) => (
               <li key={l.href}>
                 <a

@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
+import FachadaMidia from './FachadaMidia.jsx'
 import { srcSetUnsplash } from '../imagens.js'
 
 // Jogo da turma (hospedado fora do site).
@@ -110,12 +111,21 @@ export default function Jogo() {
               className="flex aspect-video items-center justify-center rounded-3xl border border-white/15 bg-white/5 backdrop-blur"
             >
               {pronto ? (
-                <iframe
-                  title="Jogo E-lixo Zero da turma do 1.º ano K"
+                <FachadaMidia
+                  titulo="Jogo da turma"
+                  capa={
+                    <img
+                      src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop"
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-video w-full object-cover"
+                    />
+                  }
+                  iframeTitle="Jogo E-lixo Zero da turma do 1.º ano K"
                   src={embedUrl}
                   className="h-full w-full rounded-3xl border-0"
-                  loading="lazy"
-                  allowFullScreen
                 />
               ) : (
                 <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-50/40">

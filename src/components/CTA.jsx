@@ -57,7 +57,7 @@ export default function CTA() {
             id="titulo-participe"
             kicker="04 · Chamada para ação"
             escuro
-            titulo="Entre para o movimento E-lixo Zero"
+            titulo={<>Entre para o <span className="risco-escuro">movimento E-lixo Zero</span></>}
           />
           <p className="mt-4 text-lg lg:text-xl text-emerald-50/85 leading-relaxed">
             Receba o <strong className="text-white">guia gratuito de descarte correto</strong> e
@@ -103,6 +103,25 @@ export default function CTA() {
               {erroGeo}
             </p>
           )}
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <span className="text-sm font-semibold text-emerald-50/80">Divulgue:</span>
+            {[
+              ['WhatsApp', `https://wa.me/?text=${encodeURIComponent(`E-lixo Zero: lixo eletrônico e ODS na COP 30 ${typeof window !== 'undefined' ? window.location.href : ''}`)}`],
+              ['Telegram', `https://t.me/share/url?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}&text=${encodeURIComponent('E-lixo Zero: lixo eletrônico e ODS')}`],
+              ['Facebook', `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`],
+              ['X', `https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}&text=${encodeURIComponent('E-lixo Zero: lixo eletrônico e ODS')}`]
+            ].map(([rede, href]) => (
+              <a
+                key={rede}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/20 px-3.5 py-1.5 text-xs font-semibold text-emerald-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"
+              >
+                {rede}
+              </a>
+            ))}
+          </div>
         </div>
 
         <Figura

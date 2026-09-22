@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { srcSetUnsplash } from '../imagens.js'
 
 /** Foto padrão das seções: imagem + legenda, com moldura arredondada. */
-export default function Figura({
+function Figura({
   src,
   alt,
   legenda,
@@ -35,3 +36,5 @@ export default function Figura({
     </figure>
   )
 }
+
+export default memo(Figura)

@@ -1,18 +1,38 @@
 import { useState } from 'react'
 
-const OPCOES = ['Sim, sempre', 'Às vezes', 'Não, mas quero começar', 'Não sabia onde descartar']
-const CHAVE = 'enquete-elixo'
+export const ENQUETE_SETS = [
+  {
+    pergunta: 'Você recicla seus eletrônicos?',
+    opcoes: ['Sim, sempre', 'Às vezes', 'Não, mas quero começar', 'Não sabia onde descartar']
+  },
+  {
+    pergunta: 'Onde você descartaria um celular quebrado?',
+    opcoes: ['Gaveta', 'Ponto de coleta', 'Lixo comum', 'Doaria se funcionasse']
+  },
+  {
+    pergunta: 'Você sabia o que é logística reversa?',
+    opcoes: ['Sim, e uso', 'Já ouvi falar', 'Não fazia ideia', 'Aprendi neste site!']
+  }
+]
 
-function lerVotos() {
+function semanaDoAno() {
+  const agora = new Date()
+  const inicio = new Date(agora.getFullYear(), 0, 1)
+  return Math.floor((agora - inicio) / 604800000)
+}
+
+function ler(chave) {
   try {
-    return JSON.parse(localStorage.getItem(CHAVE) || '{"votos":[0,0,0,0],"meuVoto":null}')
+    return JSON.parse(localStorage.getItem(chave) || '{"votos":[0,0,0,0],"meuVoto":null}')
   } catch {
     return { votos: [0, 0, 0, 0], meuVoto: null }
   }
 }
 
 export default function Enquete() {
-  const [estado, setEstado] = useState(lerVotos)
+  const set = ENQUETE_SETS[semanaDoAno() % ENQUETE_SETS.length]
+  const chave = `enquete-elixo-${ENQUETE_SETS.indexOf(set)}`
+  const [estado, setEstado] = useState(() => ler(chave))
   const total = estado.votos.reduce((a, b) => a + b, 0)
 
   function votar(i) {
@@ -21,7 +41,7 @@ export default function Enquete() {
     const novo = { votos, meuVoto: i }
     setEstado(novo)
     try {
-      localStorage.setItem(CHAVE, JSON.stringify(novo))
+      localStorage.setItem(chave, JSON.stringify(novo))
     } catch {
       /* sem armazenamento */
     }
@@ -31,12 +51,12 @@ export default function Enquete() {
     <section id="enquete" aria-labelledby="titulo-enquete" className="bg-[#eff6dc] py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl rounded-[2rem] bg-white p-6 sm:p-10 ring-1 ring-stone-200/70 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">Enquete rápida</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">Enquete da semana</p>
           <h2 id="titulo-enquete" className="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-stone-900">
-            Você recicla seus eletrônicos?
+            {set.pergunta}
           </h2>
           <div className="mt-6 space-y-2.5 text-left">
-            {OPCOES.map((opcao, i) => {
+            {set.opcoes.map((opcao, i) => {
               const pct = total > 0 ? Math.round((estado.votos[i] / total) * 100) : 0
               const votada = estado.meuVoto === i
               return estado.meuVoto === null ? (
@@ -44,7 +64,7 @@ export default function Enquete() {
                   key={opcao}
                   type="button"
                   onClick={() => votar(i)}
-                  className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-left font-medium text-stone-800 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-md"
+                  className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 min-h-[48px] text-left font-medium text-stone-800 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-md"
                 >
                   {opcao}
                 </button>
@@ -67,7 +87,7 @@ export default function Enquete() {
           <p className="mt-4 text-xs text-stone-500">
             {total === 0
               ? 'Seja o primeiro a votar! Resultado salvo só neste navegador.'
-              : `${total} voto${total > 1 ? 's' : ''} neste navegador. Resultado local, sem envio.`}
+              : `${total} voto${total > 1 ? 's' : ''} neste navegador. A pergunta troca toda semana.`}
           </p>
         </div>
       </div>

@@ -9,14 +9,28 @@ import { perguntasAvancadas } from './quizData.js'
 import Enquete from './components/Enquete.jsx'
 import Checklist from './components/Checklist.jsx'
 import Memoria from './components/Memoria.jsx'
+import Arcade from './components/Arcade.jsx'
 import Jornada from './components/Jornada.jsx'
+import Comparador from './components/Comparador.jsx'
+import CasoReal from './components/CasoReal.jsx'
 import Numeros from './components/Numeros.jsx'
 import Brasil from './components/Brasil.jsx'
 import Mitos from './components/Mitos.jsx'
 import Calculadora from './components/Calculadora.jsx'
 import Sobre from './components/Sobre.jsx'
+import Votacao from './components/Votacao.jsx'
+import Encerramento from './components/Encerramento.jsx'
+import Cartaz from './components/Cartaz.jsx'
+import Slides from './components/Slides.jsx'
+import DotsNavegacao from './components/DotsNavegacao.jsx'
+import PainelAcesso from './components/PainelAcesso.jsx'
+import Atalhos from './components/Atalhos.jsx'
+import ThemeColor from './components/ThemeColor.jsx'
+import FaviconDinamico from './components/FaviconDinamico.jsx'
+import Folhas from './components/Folhas.jsx'
 import Splash from './components/Splash.jsx'
 import CursorPersonalizado from './components/CursorPersonalizado.jsx'
+import Ranking from './components/Ranking.jsx'
 import Faq from './components/Faq.jsx'
 import CTA from './components/CTA.jsx'
 import QuemFez from './components/QuemFez.jsx'
@@ -42,7 +56,9 @@ export default function App() {
         <FaixaRolante />
         <Reveal><Problema /></Reveal>
         <Reveal><Jornada /></Reveal>
+        <Reveal><Comparador /></Reveal>
         <Reveal><Numeros /></Reveal>
+        <Reveal><CasoReal /></Reveal>
         <Reveal><ODS /></Reveal>
         <Reveal><Mitos /></Reveal>
         <Reveal><Brasil /></Reveal>
@@ -52,6 +68,7 @@ export default function App() {
         <CircuitoDivisor />
         <Reveal><Jogo /></Reveal>
         <Reveal><Memoria /></Reveal>
+        <Reveal><Arcade /></Reveal>
         <CircuitoDivisor />
         <Reveal><Quiz /></Reveal>
         <Reveal>
@@ -64,16 +81,27 @@ export default function App() {
             idTitulo="titulo-quiz-avancado"
           />
         </Reveal>
+        <Reveal><Ranking /></Reveal>
         <Reveal><Enquete /></Reveal>
+        <Reveal><Votacao /></Reveal>
         <Reveal><CTA /></Reveal>
         <Reveal><Checklist /></Reveal>
         <Reveal><QuemFez /></Reveal>
         <Reveal><Faq /></Reveal>
         <Reveal><Sobre /></Reveal>
+        <Reveal><Encerramento /></Reveal>
+        <Cartaz />
       </main>
       <Footer />
       <VoltarTopo />
       <CursorPersonalizado />
+      <DotsNavegacao />
+      <PainelAcesso />
+      <Atalhos />
+      <ThemeColor />
+      <FaviconDinamico />
+      <Folhas />
+      <Slides />
     </>
   )
 }

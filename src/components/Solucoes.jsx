@@ -94,7 +94,7 @@ export default function Solucoes() {
               <h3 id="titulo-cop" className="font-bold text-lg lg:text-xl text-lime-200">Iniciativas em destaque na COP 30</h3>
               <ul className="mt-3 space-y-2 text-sm sm:text-base lg:text-lg text-emerald-50/90 leading-relaxed list-disc pl-5">
                 <li className="break-words"><strong>Logística reversa obrigatória:</strong> fabricantes devem coletar eletroeletrônicos pós-consumo (Decreto 10.240/2020).</li>
-                <li><strong>Pontos de entrega voluntária (PEVs):</strong> redes da ABREE e Green Eletron em lojas e assistências.</li>
+                <li><strong>Pontos de entrega voluntária (<abbr title="Pontos de Entrega Voluntária">PEVs</abbr>):</strong> redes da ABREE e Green Eletron em lojas e assistências.</li>
                 <li><strong>Economia circular e emprego verde:</strong> cooperativas e recicladores certificados no centro da transição justa.</li>
                 <li><strong>Meta global:</strong> ampliar a coleta formal para frear o avanço rumo às 82 milhões de toneladas em 2030.</li>
               </ul>
@@ -125,6 +125,13 @@ export default function Solucoes() {
                   className="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400 hover:text-emerald-700"
                 >
                   Pontos Green Eletron ↗
+                </a>
+                <a
+                  href="./infografico.svg"
+                  download="infografico-economia-circular.svg"
+                  className="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400 hover:text-emerald-700"
+                >
+                  ⬇ Infográfico do ciclo
                 </a>
               </div>
             </div>

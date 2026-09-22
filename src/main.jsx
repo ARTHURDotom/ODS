@@ -24,3 +24,23 @@ window.addEventListener('beforeprint', () => {
 window.addEventListener('afterprint', () => {
   document.body.classList.remove('print-cert')
 })
+
+/* VLibras: carrega só após a primeira interação ou rolagem */
+function carregarVLibras() {
+  if (window.VLibras || document.querySelector('script[data-vlibras]')) return
+  const s = document.createElement('script')
+  s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js'
+  s.async = true
+  s.dataset.vlibras = '1'
+  s.onload = () => {
+    try {
+      new window.VLibras.Widget()
+    } catch {
+      /* plugin indisponível */
+    }
+  }
+  document.body.appendChild(s)
+}
+;['scroll', 'click', 'keydown', 'touchstart'].forEach((ev) =>
+  window.addEventListener(ev, carregarVLibras, { once: true, passive: true })
+)

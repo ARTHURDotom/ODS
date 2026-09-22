@@ -1,5 +1,15 @@
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import Reveal from './Reveal.jsx'
+import Donut from './Donut.jsx'
+
+const MARCOS = [
+  ['1989', 'Convenção da Basileia regula o movimento de resíduos perigosos entre países.'],
+  ['2003', 'União Europeia cria a diretiva de e-lixo (REEE).'],
+  ['2010', 'Brasil aprova a Política Nacional de Resíduos Sólidos.'],
+  ['2019', 'Mundo gera 54 milhões de toneladas de e-lixo.'],
+  ['2022', 'Recorde: 62 milhões de toneladas.'],
+  ['2024', 'Monitor da ONU projeta 82 milhões para 2030.']
+]
 
 const composicao = [
   { material: 'Metais', peso: '31 milhões de t', pct: 50, classe: 'from-emerald-400 to-teal-500' },
@@ -76,6 +86,40 @@ export default function Numeros() {
               </article>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-6 grid items-center gap-6 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 lg:grid-cols-2">
+          <Donut />
+          <div>
+            <h3 className="text-xl font-bold">Cronologia do e-lixo</h3>
+            <ol className="mt-3 space-y-2 text-sm lg:text-base">
+              {MARCOS.map(([ano, fato]) => (
+                <li key={ano} className="flex gap-3">
+                  <span className="shrink-0 rounded-full bg-lime-300/15 px-2.5 py-0.5 text-xs font-extrabold text-lime-200 ring-1 ring-lime-300/30">
+                    {ano}
+                  </span>
+                  <span className="text-emerald-50/85">{fato}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+
+        <div className="mt-6 grid items-center gap-6 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 lg:grid-cols-2">
+          <Donut />
+          <div>
+            <h3 className="text-xl font-bold">Cronologia do e-lixo</h3>
+            <ol className="mt-3 space-y-2 text-sm lg:text-base">
+              {MARCOS.map(([ano, fato]) => (
+                <li key={ano} className="flex gap-3">
+                  <span className="shrink-0 rounded-full bg-lime-300/15 px-2.5 py-0.5 text-xs font-extrabold text-lime-200 ring-1 ring-lime-300/30">
+                    {ano}
+                  </span>
+                  <span className="text-emerald-50/85">{fato}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
 
         <div className="mt-6 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">

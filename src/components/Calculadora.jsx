@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
+import Simulador from './Simulador.jsx'
 
 const PESOS = [
   { id: 'celulares', rotulo: 'Celulares parados', peso: 0.18, unidade: 'un.' },
@@ -96,6 +97,9 @@ export default function Calculadora() {
             </>
           )}
         </div>
+      </div>
+      <div className="mt-8">
+        <Simulador />
       </div>
     </section>
   )

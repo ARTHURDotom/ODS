@@ -434,6 +434,164 @@ html {
   border-radius: 0;
 }
 
+/* Folhas caindo decorativas */
+@keyframes cair-folha {
+  0% {
+    transform: translateY(-5vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(320deg);
+    opacity: 0;
+  }
+}
+.folha-caindo {
+  animation: cair-folha linear infinite;
+}
+
+/* Leitura confortável (painel de acesso) */
+body.leitura-espacada p,
+body.leitura-espacada li {
+  line-height: 2 !important;
+}
+html.sem-animacao *,
+html.sem-animacao *::before,
+html.sem-animacao *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Contraste extra do sistema */
+@media (prefers-contrast: more) {
+  .text-stone-500 {
+    color: #44403c !important;
+  }
+  .text-stone-600 {
+    color: #292524 !important;
+  }
+}
+
+/* Grifos que se desenham */
+.risco {
+  background-image: linear-gradient(to top, rgba(190, 242, 100, 0.55) 0.35em, transparent 0.35em);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 1s ease-out 0.3s;
+}
+.reveal-visivel .risco {
+  background-size: 100% 100%;
+}
+
+/* Variante sublinhada para fundos escuros */
+.risco-escuro {
+  background-image: linear-gradient(to top, #bef264 0.12em, transparent 0.12em);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 1s ease-out 0.3s;
+  padding-bottom: 0.05em;
+}
+.reveal-visivel .risco-escuro {
+  background-size: 100% 100%;
+}
+
+/* Assinatura animada */
+@keyframes deslize-assinatura {
+  to {
+    background-position: 200% center;
+  }
+}
+.assinatura {
+  background: linear-gradient(90deg, #bef264, #ffffff, #bef264);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: deslize-assinatura 4s linear infinite;
+}
+
+/* Folhas caindo decorativas */
+@keyframes cair-folha {
+  0% {
+    transform: translateY(-5vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(320deg);
+    opacity: 0;
+  }
+}
+.folha-caindo {
+  animation: cair-folha linear infinite;
+}
+
+/* Leitura confortável e modo calmo (painel de acesso) */
+body.leitura-espacada p,
+body.leitura-espacada li {
+  line-height: 2 !important;
+}
+html.sem-animacao *,
+html.sem-animacao *::before,
+html.sem-animacao *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Contraste extra do sistema */
+@media (prefers-contrast: more) {
+  .text-stone-500 {
+    color: #44403c !important;
+  }
+  .text-stone-600 {
+    color: #292524 !important;
+  }
+}
+
+/* Âncoras com respiro do header */
+html {
+  scroll-padding-top: 5rem;
+}
+
+/* Folhas caindo */
+@keyframes cair-folha {
+  0% {
+    transform: translateY(-5vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(320deg);
+    opacity: 0;
+  }
+}
+.folha-caindo {
+  animation: cair-folha linear infinite;
+}
+
+/* Leitura confortável e sem animação (painel de acesso) */
+body.leitura-espacada p,
+body.leitura-espacada li {
+  line-height: 2 !important;
+}
+html.sem-animacao *,
+html.sem-animacao *::before,
+html.sem-animacao *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Ancoras com respiro do header */
+html {
+  scroll-padding-top: 5rem;
+}
+
 /* Impressão do site: esconde navegação e mídia, evita quebras */
 @media print {
   body:not(.print-cert) header,
@@ -455,10 +613,13 @@ html {
     visibility: hidden;
   }
   body.print-cert #certificado,
-  body.print-cert #certificado * {
+  body.print-cert #certificado *,
+  body.print-cert #certificado-livre,
+  body.print-cert #certificado-livre * {
     visibility: visible;
   }
-  body.print-cert #certificado {
+  body.print-cert #certificado,
+  body.print-cert #certificado-livre {
     position: fixed;
     inset: 0;
     margin: auto;

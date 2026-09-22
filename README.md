@@ -36,9 +36,10 @@ Alunos do 1.º ano K do Ensino Médio — Colégio Cruzeiro do Sul, São Miguel.
 ├── src/
 │   ├── App.jsx             # composição das seções
 │   ├── data.js             # estatísticas, ODS, passos e práticas
-│   └── components/         # Header, Hero, Problema, ODS, Solucoes,
-│                           # Jogo, Quiz, Enquete, Memoria, Jornada, Mitos,
-│                           # Calculadora, Checklist, CTA, QuemFez, Faq, Sobre, Footer, ...
+│   └── components/         # 30+ componentes: Header, Hero, Problema, ODS,
+│                           # Jornada, Numeros, Mitos, Brasil, Solucoes, Calculadora,
+│                           # Jogo, Memoria, Arcade, Quiz (+níveis), Ranking, Enquete,
+│                           # CTA, Checklist, QuemFez, Faq, Sobre, Footer, ...
 └── .github/workflows/deploy.yml  # build + deploy automático
 ```
 
@@ -54,3 +55,23 @@ Alunos do 1.º ano K do Ensino Médio — Colégio Cruzeiro do Sul, São Miguel.
 ## Créditos de mídia
 
 - Fotos genéricas: Unsplash · Foto e vídeo da turma: acervo próprio · Ícones: SVG próprios
+
+## Como rodar e publicar
+
+```powershell
+npm install
+npm run dev    # abre em http://localhost:5173
+npm run build  # gera a pasta dist/ (validar antes de enviar)
+npm test       # roda os testes automatizados (Vitest)
+```
+
+Qualquer push na `main` republica o site via GitHub Actions. Seções atuais: Hero, Problema,
+Jornada, Números, ODS, Mitos, Brasil, Soluções, Calculadora, Jogo, Memória, Arcade, Quiz
+(básico + avançado + maratona), Ranking, Enquete, CTA, Checklist, Quem fez, FAQ e Sobre.
+
+## Acessibilidade e teclado
+
+- Contraste AA, foco visível, `aria-live` nos placares e skip link
+- Atalhos: teclas `1–9` pulam às seções, `T` volta ao topo, `F` vai ao fim, `?` abre a ajuda
+- Para testar com leitor de tela (NVDA, grátis): abra o site e navegue com `Tab`
+  (ordem: menu → conteúdo → quiz → rodapé), conferindo se todos os botões têm nome audível

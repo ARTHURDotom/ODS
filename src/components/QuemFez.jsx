@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import Figura from './Figura.jsx'
+import FachadaMidia from './FachadaMidia.jsx'
 
 export default function QuemFez() {
   const [videoSrc, setVideoSrc] = useState('./videos/turma.mp4')
@@ -113,16 +114,17 @@ export default function QuemFez() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-10">
-        <div className="overflow-hidden rounded-[2rem] shadow-lg ring-1 ring-stone-200/70">
-          <iframe
-            title="Mapa: Colégio Cruzeiro do Sul — Av. Dr. Ussiel Cirilo, 213, Vila Jacuí, São Paulo"
-            src="https://www.google.com/maps?q=Av.+Dr.+Ussiel+Cirilo,+213+-+Vila+Jacu%C3%AD,+S%C3%A3o+Paulo+-+SP,+08060-070&output=embed"
-            className="h-72 sm:h-96 w-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
-        </div>
+        <FachadaMidia
+          titulo="Mapa do colégio"
+          capa={
+            <div className="flex h-72 sm:h-96 items-center justify-center bg-emerald-100 text-6xl" aria-hidden="true">
+              🗺️
+            </div>
+          }
+          iframeTitle="Mapa: Colégio Cruzeiro do Sul — Av. Dr. Ussiel Cirilo, 213, Vila Jacuí, São Paulo"
+          src="https://www.google.com/maps?q=Av.+Dr.+Ussiel+Cirilo,+213+-+Vila+Jacu%C3%AD,+S%C3%A3o+Paulo+-+SP,+08060-070&output=embed"
+          className="h-72 sm:h-96 w-full overflow-hidden rounded-[2rem] shadow-lg ring-1 ring-stone-200/70"
+        />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-10 grid items-start gap-8 lg:grid-cols-2">
@@ -137,7 +139,7 @@ export default function QuemFez() {
         <figure className="mx-auto w-full max-w-xs sm:max-w-sm">
           <video
             src={videoSrc}
-            poster="./videos/turma-poster.jpg"
+            poster="./videos/turma-poster.webp"
             controls
             preload="none"
             playsInline

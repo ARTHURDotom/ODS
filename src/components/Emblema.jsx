@@ -1,5 +1,7 @@
+import { memo } from 'react'
+
 /** Emblema folha + circuito do E-lixo Zero. */
-export default function Emblema({ tamanho = 36, className = '' }) {
+function Emblema({ tamanho = 36, className = '' }) {
   return (
     <svg
       width={tamanho}
@@ -27,3 +29,5 @@ export default function Emblema({ tamanho = 36, className = '' }) {
     </svg>
   )
 }
+
+export default memo(Emblema)

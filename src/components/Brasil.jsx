@@ -5,7 +5,8 @@ const brasil = [
   { valor: '2,4 milhões', texto: 'de toneladas por ano — 2.º lugar nas Américas (atrás dos EUA) e cerca de 5.º no mundo.' },
   { valor: '~3%', texto: 'é reciclado de fato. Mais de 80% dos brasileiros acumulam e-lixo em casa (Green Eletron, 2023).' },
   { valor: '11 mil+', texto: 'pontos de coleta (PEVs) da Green Eletron em 2025 — e 7,3 mil toneladas coletadas em 2024.' },
-  { valor: '230 mil t', texto: 'coletadas pela ABREE entre 2021 e 2025 — o peso de mais de 200 Cristos Redentores.' }
+  { valor: '230 mil t', texto: 'coletadas pela ABREE entre 2021 e 2025 — o peso de mais de 200 Cristos Redentores.' },
+  { valor: '90%', texto: 'da reciclagem no Brasil passa por catadores e cooperativas — emprego verde na prática.' }
 ]
 
 const cop = [
@@ -25,13 +26,23 @@ export default function Brasil() {
           id="titulo-brasil"
           kicker="Brasil e COP"
           kickerClassName="text-sm font-semibold uppercase tracking-widest text-emerald-700"
-          titulo="O Brasil no mapa do e-lixo"
+          titulo={<>O Brasil no <span className="risco">mapa do e-lixo</span></>}
         />
         <p className="mt-4 max-w-3xl text-lg lg:text-xl text-stone-600 leading-relaxed">
           O país tem uma das leis mais avançadas da América Latina (PNRS + Decreto 10.240/2020) — e foi sede da COP 30.
+          São Paulo concentra a maior rede de coleta, com programas como o{' '}
+          <a
+            href="https://www.reciclasampa.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-emerald-700 underline underline-offset-4 hover:text-emerald-800"
+          >
+            Recicla Sampa
+          </a>{' '}
+          na capital.
         </p>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {brasil.map((b, i) => (
             <Reveal key={b.valor} delay={i * 90} className="h-full">
               <article className="h-full rounded-2xl bg-white p-6 ring-1 ring-stone-200/70 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-900/15">
@@ -42,17 +53,35 @@ export default function Brasil() {
           ))}
         </div>
 
-        <h3 className="mt-12 text-xl lg:text-2xl font-bold text-stone-900">Da COP21 à COP30 em 6 marcos</h3>
-        <ol className="mt-5 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-visible">
-          {cop.map((c, i) => (
-            <Reveal as="li" key={c.ano} delay={i * 70} className="min-w-[16rem] snap-start sm:min-w-[20rem] lg:min-w-0 list-none">
-              <article className="h-full rounded-2xl bg-emerald-950 p-5 text-white">
-                <p className="text-sm font-bold uppercase tracking-wider text-lime-200">{c.ano}</p>
-                <p className="mt-2 text-emerald-50/90 leading-relaxed">{c.texto}</p>
-              </article>
-            </Reveal>
+        <h3 className="mt-12 text-xl lg:text-2xl font-bold text-stone-900">Leis em 3 lugares</h3>
+        <div className="mt-4 grid gap-3 md:grid-cols-3">
+          {[
+            ['Brasil', 'PNRS (2010) + Decreto 10.240/2020: responsabilidade compartilhada e PEVs.'],
+            ['União Europeia', 'Diretiva REEE: metas de coleta e reciclagem desde 2003.'],
+            ['EUA', 'Sem lei federal: cada estado tem sua regra de e-lixo.']
+          ].map(([lugar, lei]) => (
+            <div key={lugar} className="rounded-2xl bg-white p-5 ring-1 ring-stone-200/70">
+              <p className="font-extrabold text-emerald-700">{lugar}</p>
+              <p className="mt-1 text-sm lg:text-base text-stone-600 leading-relaxed">{lei}</p>
+            </div>
           ))}
-        </ol>
+        </div>
+
+        <h3 className="mt-12 text-xl lg:text-2xl font-bold text-stone-900">Da COP21 à COP30 em 6 marcos</h3>
+        <p className="mt-1 text-sm text-stone-500">Toque em cada ano para ver o destaque.</p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {cop.map((c) => (
+            <details
+              key={c.ano}
+              className="group rounded-2xl bg-emerald-950 p-5 text-white open:ring-2 open:ring-lime-300/50"
+            >
+              <summary className="cursor-pointer list-none text-sm font-bold uppercase tracking-wider text-lime-200 [&::-webkit-details-marker]:hidden">
+                {c.ano} <span aria-hidden="true" className="transition-transform group-open:rotate-90 inline-block">▶</span>
+              </summary>
+              <p className="mt-2 text-emerald-50/90 leading-relaxed">{c.texto}</p>
+            </details>
+          ))}
+        </div>
         <p className="mt-4 text-xs text-stone-500">
           Fontes: ONU/UNFCCC, Global E-waste Monitor 2024, ABREE (balanço 2021–2025), Green Eletron e PNRS (Lei 12.305/2010).
         </p>

@@ -1,5 +1,6 @@
 import Emblema from './Emblema.jsx'
 import ContrasteToggle from './ContrasteToggle.jsx'
+import Visitas from './Visitas.jsx'
 
 const saibaMais = [
   ['Global E-waste Monitor 2024', 'https://globalewaste.org/'],
@@ -37,6 +38,7 @@ export default function Footer() {
               Aponte a câmera para visitar<br />e cole no mural da escola.
             </figcaption>
           </figure>
+          <Visitas />
         </div>
         <div>
           <h2 className="font-semibold text-white text-sm uppercase tracking-wider">Saiba mais</h2>
@@ -96,6 +98,12 @@ export default function Footer() {
             <ContrasteToggle />
           </p>
           <p>Trabalho escolar · 1.º ano K — Colégio Cruzeiro do Sul, São Miguel · Fotos: Unsplash.</p>
+          <p className="assinatura font-extrabold" aria-label="Feito com reciclagem pelo primeiro K">
+            Feito com ♻️ pelo 1.ºK
+          </p>
+          <p className="assinatura font-extrabold" aria-label="Feito com reciclagem pelo primeiro K">
+            Feito com ♻️ pelo 1.ºK
+          </p>
         </div>
       </div>
     </footer>

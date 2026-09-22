@@ -78,6 +78,19 @@ export default function ODS() {
           ))}
         </div>
 
+        <div className="mt-8 flex flex-wrap gap-2" aria-label="Outros ODS relacionados">
+          {[
+            ['3', 'Saúde', 'Queima de e-lixo adoece quem manipula sem proteção.'],
+            ['6', 'Água', 'Metais pesados ameaçam rios e água potável.'],
+            ['8', 'Trabalho', 'Reciclagem formal gera emprego verde e digno.'],
+            ['11', 'Cidades', 'Coleta seletiva urbana tira e-lixo das ruas.']
+          ].map(([n, t, d]) => (
+            <p key={n} title={d} className="cursor-default rounded-full bg-white px-4 py-2 text-sm font-semibold text-stone-700 ring-1 ring-stone-200/70 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              ODS {n} · {t}
+            </p>
+          ))}
+        </div>
+
         <aside className="mt-8 overflow-hidden rounded-2xl bg-gradient-to-r from-teal-950 to-emerald-900 text-white transition-all duration-300 ease-out hover:shadow-lg">
           <div className="flex flex-col sm:flex-row sm:items-center">
             <img
