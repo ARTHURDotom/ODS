@@ -263,12 +263,6 @@ export default function Sobre() {
               <li>ONU. Agenda 2030 e Objetivos de Desenvolvimento Sustentável. Nova York: ONU.</li>
               <li>BRASIL. Lei n.º 12.305/2010 (PNRS) e Decreto n.º 10.240/2020.</li>
             </ul>
-            <h3 className="mt-6 text-xl font-bold text-stone-900">Anexos do trabalho</h3>
-            <ul className="mt-3 space-y-2 text-sm text-stone-600 leading-relaxed list-disc pl-5">
-              <li>Roteiro de pesquisa e divisão de tarefas da turma.</li>
-              <li>Prints de auditoria (testes automatizados e build).</li>
-              <li>Autorização de uso de imagem dos estudantes (via escola).</li>
-            </ul>
           </div>
           <div className="rounded-[2rem] bg-white p-6 sm:p-8 ring-1 ring-stone-200/70">
             <h3 className="text-xl font-bold text-stone-900">Selo de qualidade ✅</h3>
@@ -278,33 +272,7 @@ export default function Sobre() {
               <li>✓ Contraste AA e navegação por teclado</li>
               <li>✓ Responsivo do celular ao PC</li>
             </ul>
-            <h3 className="mt-6 text-xl font-bold text-stone-900">Esta página pesa pouco ⚡</h3>
-            <p className="mt-3 text-sm text-stone-600 leading-relaxed">
-              JS em torno de 200 KB, CSS abaixo de 50 KB, fotos com versões para cada tela
-              e vídeo só sob demanda. Medido em setembro de 2026.
-            </p>
           </div>
-        </div>
-
-        <div className="mt-6 rounded-[2rem] bg-white p-6 sm:p-8 ring-1 ring-stone-200/70">
-          <h3 className="text-xl font-bold text-stone-900">Autorização de uso de imagem (modelo)</h3>
-          <p className="mt-3 text-sm text-stone-600 leading-relaxed">
-            Eu, __________________________________________, responsável por __________________________________________,
-            autorizo o uso da imagem do estudante no site E-lixo Zero, trabalho escolar do 1.º ano K do
-            Colégio Cruzeiro do Sul, São Miguel, apenas para fins educativos. São Paulo, ____/____/________.
-            Assinatura: __________________________________________
-          </p>
-          <button
-            type="button"
-            onClick={() => window.print()}
-            className="mt-4 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-700"
-          >
-            Imprimir modelo
-          </button>
-        </div>
-
-        <div className="mt-6 flex flex-wrap items-center gap-3">
-          <WallpaperBtn />
         </div>
       </div>
     </section>
