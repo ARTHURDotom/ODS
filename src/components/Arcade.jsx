@@ -4,6 +4,7 @@ import Forca from './Forca.jsx'
 import CacaPalavras from './CacaPalavras.jsx'
 import Flashcards from './Flashcards.jsx'
 import Roleta from './Roleta.jsx'
+import AdivinhePeso from './AdivinhePeso.jsx'
 
 export default function Arcade() {
   return (
@@ -24,6 +25,7 @@ export default function Arcade() {
           <CacaPalavras />
           <Flashcards />
           <Roleta />
+          <AdivinhePeso />
         </div>
       </div>
     </section>

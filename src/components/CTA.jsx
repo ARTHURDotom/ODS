@@ -3,6 +3,8 @@ import CabecalhoSecao from './CabecalhoSecao.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
 import Figura from './Figura.jsx'
 import SeloGiratorio from './SeloGiratorio.jsx'
+import Diario from './Diario.jsx'
+import Compromisso from './Compromisso.jsx'
 
 const beneficios = [
   'Guia em PDF: onde descartar cada tipo de eletrônico',
@@ -133,6 +135,10 @@ export default function CTA() {
         >
           <SeloGiratorio className="-top-8 -left-4 hidden sm:block" />
         </Figura>
+      </div>
+      <div className="relative mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-6 lg:grid-cols-2">
+        <Diario />
+        <Compromisso />
       </div>
     </section>
   )

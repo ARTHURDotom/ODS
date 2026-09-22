@@ -5,6 +5,7 @@ import ODS from './components/ODS.jsx'
 import Solucoes from './components/Solucoes.jsx'
 import Jogo from './components/Jogo.jsx'
 import Quiz from './components/Quiz.jsx'
+import VerdadeiroFalso from './components/VerdadeiroFalso.jsx'
 import { perguntasAvancadas, perguntasNivel3, todasPerguntas } from './quizData.js'
 import Enquete from './components/Enquete.jsx'
 import Checklist from './components/Checklist.jsx'
@@ -106,6 +107,7 @@ export default function App() {
           />
         </Reveal>
         <Reveal><Ranking /></Reveal>
+        <Reveal><VerdadeiroFalso /></Reveal>
         <Reveal><Enquete /></Reveal>
         <Reveal><Votacao /></Reveal>
         <Reveal><CTA /></Reveal>
