@@ -1,13 +1,44 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import ErroCritico from './components/ErroCritico.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <ErroCritico>
+      <App />
+    </ErroCritico>
   </React.StrictMode>
 )
+
+/* Se o JavaScript não montar nada em 6s (arquivo local, cache, rede),
+   mostra aviso em vez de página em branco. Some sozinho se montar. */
+setTimeout(() => {
+  const root = document.getElementById('root')
+  if (!root || root.hasChildNodes()) return
+  const aviso = document.createElement('div')
+  aviso.id = 'falha-boot'
+  aviso.style.cssText =
+    'min-height:100vh;display:flex;align-items:center;justify-content:center;' +
+    'padding:1.5rem;background:#eff6dc;font-family:system-ui,sans-serif;'
+  aviso.innerHTML =
+    '<div style="max-width:32rem;background:#fff;border-radius:1.5rem;' +
+    'padding:2rem;text-align:center">' +
+    '<p style="font-size:2.5rem">📄</p>' +
+    '<h1 style="font-size:1.5rem;font-weight:800;color:#1c1917">A página não carregou</h1>' +
+    '<p style="margin-top:.5rem;color:#57534e">Possíveis causas: abrir o arquivo direto ' +
+    '(use <b>npm run dev</b> ou o link publicado), cache antigo (aperte <b>Ctrl+F5</b>) ' +
+    'ou internet instável.</p></div>'
+  document.body.prepend(aviso)
+  const obs = new MutationObserver(() => {
+    if (root.hasChildNodes()) {
+      document.getElementById('falha-boot')?.remove()
+      obs.disconnect()
+    }
+  })
+  obs.observe(root, { childList: true })
+}, 6000)
 
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {

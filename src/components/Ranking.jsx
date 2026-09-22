@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 
+const AVATARES = ['♻️', '🌱', '🦊', '🐢', '🦉', '🐝', '🌳', '⚡']
+
 export default function Ranking() {
   const [nome, setNome] = useState('')
   const [lista, setLista] = useState(() => {
