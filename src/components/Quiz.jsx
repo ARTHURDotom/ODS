@@ -11,13 +11,14 @@ export default function Quiz({
   chaveRecorde = 'quiz-recorde',
   kicker = 'Desafio · Teste seus conhecimentos',
   titulo = 'Quiz E-lixo Zero',
+  tempoPorPergunta = TEMPO_LIMITE,
   idSecao = 'quiz',
   idTitulo = 'titulo-quiz'
 }) {
   const [respostas, setRespostas] = useState({})
   const [nome, setNome] = useState('')
   const [copiado, setCopiado] = useState(false)
-  const [tempo, setTempo] = useState(TEMPO_LIMITE)
+  const [tempo, setTempo] = useState(tempoPorPergunta)
   const [modo, setModo] = useState('solo')
   const [placar, setPlacar] = useState({ A: 0, B: 0 })
   const jaCelebrou = useRef(false)
@@ -38,14 +39,13 @@ export default function Quiz({
 
   useEffect(() => {
     if (finalizado) return
-    setTempo(TEMPO_LIMITE)
+    setTempo(tempoPorPergunta)
     const id = setInterval(() => {
       setTempo((t) => {
         if (t <= 1) {
           clearInterval(id)
           setRespostas((r) => (atual in r ? r : { ...r, [atual]: -1 }))
-          return TEMPO_LIMITE
-        }
+          return tempoPorPergunta        }
         return t - 1
       })
     }, 1000)
@@ -228,7 +228,7 @@ export default function Quiz({
                         <div className="mt-1 h-2 overflow-hidden rounded-full bg-white/10">
                           <div
                             className="h-full rounded-full bg-lime-300 transition-all duration-1000 ease-linear"
-                            style={{ width: `${(tempo / TEMPO_LIMITE) * 100}%` }}
+                            style={{ width: `${(tempo / tempoPorPergunta) * 100}%` }}
                           />
                         </div>
                       </div>

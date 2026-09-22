@@ -11,7 +11,18 @@ export const TERMOS = [
   { termo: 'COP', significado: 'Conferência das Partes: reunião anual da ONU sobre clima. A COP 30 foi em Belém do Pará.' },
   { termo: 'Economia circular', significado: 'Modelo em que materiais voltam à produção em vez de virarem lixo: reparar, reutilizar, reciclar.' },
   { termo: 'Metais pesados', significado: 'Chumbo, mercúrio e cádmio presentes em eletrônicos; tóxicos para solo, água e saúde.' },
-  { termo: 'Obsolescência programada', significado: 'Quando produtos são feitos para durar pouco, forçando trocas e gerando mais lixo.' }
+  { termo: 'Obsolescência programada', significado: 'Quando produtos são feitos para durar pouco, forçando trocas e gerando mais lixo.' },
+  { termo: 'PNRS', significado: 'Política Nacional de Resíduos Sólidos (Lei 12.305/2010): responsabilidade compartilhada pelo ciclo de vida.' },
+  { termo: 'Dioxinas', significado: 'Poluentes liberados na queima de cabos e placas; afetam respiração e sistema nervoso.' },
+  { termo: 'Cobalto', significado: 'Metal de baterias de celular e notebook; mineração concentra impactos sociais e ambientais.' },
+  { termo: 'Placa de circuito', significado: 'Coração do eletrônico: concentra ouro, cobre e prata — e chumbo nas soldas antigas.' },
+  { termo: 'PEV móvel', significado: 'Caminhão ou drive-thru temporário de coleta em campanhas e mutirões.' },
+  { termo: 'Catador', significado: 'Profissional da reciclagem; no Brasil, cooperativas respondem por ~90% da reciclagem.' },
+  { termo: 'Aterro sanitário', significado: 'Destino controlado do lixo comum — mas inadequado para eletrônicos com metais.' },
+  { termo: 'Lixão', significado: 'Descarte a céu aberto, proibido por lei; ainda recebe e-lixo sem controle.' },
+  { termo: 'Pegada eletrônica', significado: 'Quantidade de e-lixo que cada pessoa gera: média global de 7,8 kg por ano.' },
+  { termo: 'Recondicionado', significado: 'Aparelho usado, reparado e testado, vendido por menos — alternativa à troca.' },
+  { termo: 'NDC', significado: 'Contribuição Nacionalmente Determinada: meta climática que cada país leva às COPs.' }
 ]
 
 const METODOLOGIA = [

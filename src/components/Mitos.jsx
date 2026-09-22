@@ -22,6 +22,36 @@ const cartas = [
     mito: 'Fabricante é obrigado a receber eletrônico velho de volta.',
     verdade: true,
     explicacao: 'Verdade. A logística reversa (Decreto 10.240/2020) obriga a cadeia a coletar eletroeletrônicos pós-consumo.'
+  },
+  {
+    mito: 'Nuvem não gera lixo, está tudo online.',
+    verdade: false,
+    explicacao: 'Mito. Data centers trocam milhares de servidores a cada poucos anos, gerando toneladas de e-lixo corporativo.'
+  },
+  {
+    mito: 'Consertar é sempre mais caro que comprar novo.',
+    verdade: false,
+    explicacao: 'Mito. Bateria e tela custam uma fração do novo; só vale trocar quando o reparo passa de metade do preço.'
+  },
+  {
+    mito: 'Jogar eletrônico no lixo comum some no aterro.',
+    verdade: false,
+    explicacao: 'Mito. Metais pesados vazam por décadas no solo e na água. Nada "some" — só muda de lugar.'
+  },
+  {
+    mito: 'Doar só serve se o aparelho for novo.',
+    verdade: false,
+    explicacao: 'Mito. ONGs, escolas e projetos aceitam usados funcionando — doar é reutilizar.'
+  },
+  {
+    mito: 'Reciclar 1 celular não muda nada.',
+    verdade: false,
+    explicacao: 'Mito. Segundo a EPA americana, cada 1 milhão de celulares reciclados recupera ~16 t de cobre, além de prata, ouro e paládio.'
+  },
+  {
+    mito: 'Bateria inchada pode ir ao lixo comum com cuidado.',
+    verdade: false,
+    explicacao: 'Mito e perigoso: risco de incêndio. Isole os terminais com fita e leve a um PEV o quanto antes.'
   }
 ]
 

@@ -48,13 +48,30 @@ export default function Flashcards() {
           </span>
         </span>
       </button>
-      <div className="mt-4 flex justify-center gap-2">
+      <div className="mt-4 flex flex-wrap justify-center gap-2">
         <button
           type="button"
           onClick={() => proxima(-1)}
           className="rounded-full border border-white/25 px-5 py-2.5 font-semibold text-white transition-all duration-300 hover:bg-white/10"
         >
           ← Anterior
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            try {
+              const fala = new SpeechSynthesisUtterance(`${carta.termo}. ${carta.significado}`)
+              fala.lang = 'pt-BR'
+              window.speechSynthesis.cancel()
+              window.speechSynthesis.speak(fala)
+            } catch {
+              /* voz indisponível */
+            }
+          }}
+          aria-label={`Ouvir ${carta.termo} em voz alta`}
+          className="rounded-full border border-white/25 px-5 py-2.5 font-semibold text-white transition-all duration-300 hover:bg-white/10"
+        >
+          🔊 Ouvir
         </button>
         <button
           type="button"

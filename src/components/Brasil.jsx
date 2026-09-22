@@ -30,6 +30,8 @@ export default function Brasil() {
         />
         <p className="mt-4 max-w-3xl text-lg lg:text-xl text-stone-600 leading-relaxed">
           O país tem uma das leis mais avançadas da América Latina (PNRS + Decreto 10.240/2020) — e foi sede da COP 30.
+          Na comparação direta: EUA geram 7,2 milhões de toneladas por ano, México 1,5 milhão e Canadá 770 mil —
+          o Brasil, com 2,4 milhões, fica em 2.º nas Américas e cerca de 5.º no mundo.
           São Paulo concentra a maior rede de coleta, com programas como o{' '}
           <a
             href="https://www.reciclasampa.com.br/"
@@ -53,12 +55,14 @@ export default function Brasil() {
           ))}
         </div>
 
-        <h3 className="mt-12 text-xl lg:text-2xl font-bold text-stone-900">Leis em 3 lugares</h3>
+        <h3 className="mt-12 text-xl lg:text-2xl font-bold text-stone-900">Leis em 5 lugares</h3>
         <div className="mt-4 grid gap-3 md:grid-cols-3">
           {[
             ['Brasil', 'PNRS (2010) + Decreto 10.240/2020: responsabilidade compartilhada e PEVs.'],
             ['União Europeia', 'Diretiva REEE: metas de coleta e reciclagem desde 2003.'],
-            ['EUA', 'Sem lei federal: cada estado tem sua regra de e-lixo.']
+            ['EUA', 'Sem lei federal: cada estado tem sua regra de e-lixo.'],
+            ['Japão', 'Lei de reciclagem de eletrodomésticos desde 2001: consumidor paga taxa na troca.'],
+            ['Califórnia (EUA)', 'Taxa na compra nova que financia a reciclagem desde 2003.']
           ].map(([lugar, lei]) => (
             <div key={lugar} className="rounded-2xl bg-white p-5 ring-1 ring-stone-200/70">
               <p className="font-extrabold text-emerald-700">{lugar}</p>

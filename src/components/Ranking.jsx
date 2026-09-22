@@ -12,6 +12,8 @@ export default function Ranking() {
     }
   })
 
+  const [avatar, setAvatar] = useState(AVATARES[0])
+
   function salvar() {
     const ultimo = (() => {
       try {
@@ -21,7 +23,7 @@ export default function Ranking() {
       }
     })()
     if (!ultimo || nome.trim().length < 2) return
-    const nova = [...lista, { nome: nome.trim().slice(0, 30), pontos: ultimo.pontos, total: ultimo.total, data: new Date().toISOString() }]
+    const nova = [...lista, { nome: nome.trim().slice(0, 30), avatar, pontos: ultimo.pontos, total: ultimo.total, data: new Date().toISOString() }]
       .sort((a, b) => b.pontos - a.pontos || a.nome.localeCompare(b.nome))
       .slice(0, 8)
     setLista(nova)
@@ -55,7 +57,21 @@ export default function Ranking() {
           <p className="mt-3 text-stone-600">
             Jogou o quiz? Registre seu nome e entre para o quadro — vale só neste navegador.
           </p>
-          <div className="mx-auto mt-4 flex max-w-md flex-col sm:flex-row gap-2">
+          <div className="mx-auto mt-4 flex max-w-md flex-col sm:flex-row gap-2" role="group" aria-label="Escolha seu avatar">
+            {AVATARES.map((a) => (
+              <button
+                key={a}
+                type="button"
+                onClick={() => setAvatar(a)}
+                aria-pressed={avatar === a}
+                aria-label={`Avatar ${a}`}
+                className={`h-10 w-10 rounded-full text-xl ring-2 transition-all ${avatar === a ? 'bg-emerald-100 ring-emerald-600 scale-110' : 'bg-white ring-stone-200 hover:ring-emerald-300'}`}
+              >
+                {a}
+              </button>
+            ))}
+          </div>
+          <div className="mx-auto mt-3 flex max-w-md flex-col sm:flex-row gap-2">
             <label htmlFor="nome-ranking" className="sr-only">Seu nome para o ranking</label>
             <input
               id="nome-ranking"
@@ -87,6 +103,7 @@ export default function Ranking() {
                   >
                     <span className="font-bold text-stone-900">
                       {i === 0 ? '🥇 ' : i === 1 ? '🥈 ' : i === 2 ? '🥉 ' : `${i + 1}º `}
+                      <span aria-hidden="true">{r.avatar || '♻️'} </span>
                       {r.nome}
                     </span>
                     <span className="text-sm font-bold text-emerald-700">{r.pontos}/{r.total}</span>

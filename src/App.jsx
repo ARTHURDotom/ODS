@@ -18,6 +18,7 @@ import Brasil from './components/Brasil.jsx'
 import Mitos from './components/Mitos.jsx'
 import Calculadora from './components/Calculadora.jsx'
 import Sobre from './components/Sobre.jsx'
+import KitEscola from './components/KitEscola.jsx'
 import Votacao from './components/Votacao.jsx'
 import Encerramento from './components/Encerramento.jsx'
 import Cartaz from './components/Cartaz.jsx'
@@ -97,7 +98,8 @@ export default function App() {
           <Quiz
             dados={todasPerguntas}
             chaveRecorde="quiz-recorde-maratona"
-            kicker="Maratona · 15 perguntas"
+            tempoPorPergunta={10}
+            kicker="Maratona relâmpago · 15 perguntas, 10s cada"
             titulo="Quiz maratona"
             idSecao="quiz-maratona"
             idTitulo="titulo-quiz-maratona"
@@ -111,6 +113,7 @@ export default function App() {
         <Reveal><QuemFez /></Reveal>
         <Reveal><Faq /></Reveal>
         <Reveal><Sobre /></Reveal>
+        <Reveal><KitEscola /></Reveal>
         <Reveal><Encerramento /></Reveal>
         <Cartaz />
       </main>

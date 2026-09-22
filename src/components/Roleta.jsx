@@ -8,7 +8,14 @@ const ACOES = [
   'Separe cabos e carregadores velhos',
   'Compartilhe este site com a família',
   'Refaça o quiz e gabarite',
-  'Anote os eletrônicos parados da sua casa'
+  'Anote os eletrônicos parados da sua casa',
+  'Desligue da tomada o que não usa',
+  'Troque lâmpadas por LED',
+  'Doe cabos e carregadores bons',
+  'Visite um PEV com a família',
+  'Fotografe seu descarte certo',
+  'Marque 10 pontos no quiz',
+  'Zere o jogo da memória'
 ]
 
 export default function Roleta() {

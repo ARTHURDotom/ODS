@@ -25,6 +25,30 @@ const duvidas = [
   {
     p: 'E lâmpada fluorescente quebrada, o que eu faço?',
     r: 'Ela contém mercúrio: ventile o ambiente, junte os cacos com papelão (sem varrer a seco e sem aspirador), coloque num pote fechado e leve a um PEV.'
+  },
+  {
+    p: 'A garantia cobre o descarte do aparelho?',
+    r: 'Não cobre descarte, mas cobre defeito: use a garantia e a assistência autorizada antes de pensar em descartar. Peças trocadas na rede vão para reciclagem.'
+  },
+  {
+    p: 'Preciso da nota fiscal para descartar?',
+    r: 'Não. Pontos de coleta recebem sem nota fiscal. A nota só importa se você for acionar a garantia.'
+  },
+  {
+    p: 'Empresas podem usar os mesmos pontos de coleta?',
+    r: 'PEVs domésticos têm limite de volume. Empresas devem contratar coletores licenciados ou aderir aos sistemas de logística reversa do setor.'
+  },
+  {
+    p: 'Minha escola pode ser ponto de coleta?',
+    r: 'Sim! Organize um mutirão, combine com um PEV ou cooperativa próxima e use o mural com o QR deste site para divulgar.'
+  },
+  {
+    p: 'Moro no interior, sem ponto de coleta por perto. E agora?',
+    r: 'Junte volume com vizinhos, aproveite campanhas e drive-thrus, use a devolução de fabricantes e cobre um PEV da prefeitura.'
+  },
+  {
+    p: 'O que faço com cabos e carregadores velhos?',
+    r: 'Vão para PEVs como qualquer eletroeletrônico — nunca no lixo comum. Os que funcionam, doe: sempre há alguém precisando.'
   }
 ]
 

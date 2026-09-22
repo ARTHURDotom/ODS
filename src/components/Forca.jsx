@@ -6,7 +6,11 @@ const PALAVRAS = [
   { palavra: 'OURO', dica: 'Metal precioso do celular (4 letras)' },
   { palavra: 'PEV', dica: 'Sigla do ponto de entrega (3 letras)' },
   { palavra: 'ODS', dica: 'Sigla dos Objetivos da ONU (3 letras)' },
-  { palavra: 'BELEM', dica: 'Cidade da COP 30 (5 letras, sem acento)' }
+  { palavra: 'BELEM', dica: 'Cidade da COP 30 (5 letras, sem acento)' },
+  { palavra: 'CHUMBO', dica: 'Metal tóxico das telas antigas (6 letras)' },
+  { palavra: 'MERCURIO', dica: 'Metal das lâmpadas e pilhas (8 letras, sem acento)' },
+  { palavra: 'COLETA', dica: 'Levar ao PEV é fazer a... (6 letras)' },
+  { palavra: 'AMAZONIA', dica: 'Bioma da COP 30 (8 letras, sem acento)' }
 ]
 const TENTATIVAS = 6
 
