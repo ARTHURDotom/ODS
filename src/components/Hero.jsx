@@ -5,7 +5,7 @@ export default function Hero() {
     <section
       id="inicio"
       aria-labelledby="titulo-hero"
-      className="relative overflow-hidden bg-emerald-950 text-white"
+      className="grain relative overflow-hidden bg-emerald-950 text-white"
     >
       {/* foto de fundo + véu em degradê */}
       <img

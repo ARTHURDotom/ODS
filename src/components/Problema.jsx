@@ -19,12 +19,15 @@ const icones = {
 export default function Problema() {
   return (
     <section id="problema" aria-labelledby="titulo-problema" className="bg-emerald-50/60 py-16 sm:py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        <span aria-hidden="true" className="pointer-events-none absolute -top-10 right-0 select-none text-[9rem] lg:text-[15rem] font-extrabold leading-none text-emerald-900/[0.06]">
+          62
+        </span>
         <div className="grid items-center gap-10 lg:gap-16 lg:grid-cols-2">
           <div>
             <p className="text-sm lg:text-base font-semibold uppercase tracking-widest text-emerald-700">01 · O problema</p>
             <h2 id="titulo-problema" className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900">
-              O resíduo que mais cresce no mundo
+              O resíduo que <span className="marca-lima">mais cresce</span> no mundo
             </h2>
             <p className="mt-4 text-lg lg:text-xl text-stone-600 leading-relaxed">
               Celulares, notebooks, TVs, geladeiras, lâmpadas e pilhas: quando descartados sem

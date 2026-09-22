@@ -1,12 +1,28 @@
 import { ods } from '../data.js'
 
 export default function ODS() {
+  function inclinar(e) {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const r = e.currentTarget.getBoundingClientRect()
+    const x = (e.clientX - r.left) / r.width - 0.5
+    const y = (e.clientY - r.top) / r.height - 0.5
+    e.currentTarget.style.transform = `perspective(900px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 6).toFixed(2)}deg) translateY(-4px)`
+  }
+
+  function zerar(e) {
+    e.currentTarget.style.transform = ''
+  }
+
   return (
     <section id="ods" aria-labelledby="titulo-ods" className="bg-[#eff6dc] py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative">
+        <span aria-hidden="true" className="pointer-events-none absolute -top-10 right-0 select-none text-[9rem] lg:text-[15rem] font-extrabold leading-none text-emerald-900/[0.06]">
+          12
+        </span>
         <p className="text-sm font-semibold uppercase tracking-widest text-teal-700">02 · ODS conectados</p>
         <h2 id="titulo-ods" className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900">
-          Um aparelho liga quatro Objetivos da ONU
+          Um aparelho liga <span className="marca-lima">quatro Objetivos</span> da ONU
         </h2>
         <p className="mt-4 max-w-3xl text-lg lg:text-xl text-stone-600 leading-relaxed">
           Os Objetivos de Desenvolvimento Sustentável são um pacto global até 2030. O lixo eletrônico
@@ -18,6 +34,8 @@ export default function ODS() {
           {ods.map((o) => (
             <article
               key={o.numero}
+              onMouseMove={inclinar}
+              onMouseLeave={zerar}
               className={`rounded-2xl border p-6 sm:p-7 ${o.corFundo} ${o.borda} transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg`}
             >
               <div className="flex items-center gap-3">

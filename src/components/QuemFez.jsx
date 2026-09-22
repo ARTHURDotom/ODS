@@ -25,7 +25,7 @@ export default function QuemFez() {
             id="titulo-quem-fez"
             className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-stone-900"
           >
-            Um trabalho feito pela nossa turma
+            Um trabalho feito pela <span className="marca-lima">nossa turma</span>
           </h2>
           <p className="mt-4 text-lg text-stone-600 leading-relaxed">
             Esta landing page é um <strong>trabalho escolar</strong> sobre lixo eletrônico e

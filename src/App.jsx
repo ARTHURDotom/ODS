@@ -10,6 +10,9 @@ import QuemFez from './components/QuemFez.jsx'
 import Footer from './components/Footer.jsx'
 import Reveal from './components/Reveal.jsx'
 import VoltarTopo from './components/VoltarTopo.jsx'
+import FaixaRolante from './components/FaixaRolante.jsx'
+import BarraProgresso from './components/BarraProgresso.jsx'
+import DivisoriaOnda from './components/DivisoriaOnda.jsx'
 
 export default function App() {
   return (
@@ -17,11 +20,14 @@ export default function App() {
       <a href="#conteudo" className="skip-link">
         Pular para o conteúdo
       </a>
+      <BarraProgresso />
       <Header />
       <main id="conteudo">
         <Hero />
+        <FaixaRolante />
         <Reveal><Problema /></Reveal>
         <Reveal><ODS /></Reveal>
+        <DivisoriaOnda />
         <Reveal><Solucoes /></Reveal>
         <Reveal><Jogo /></Reveal>
         <Reveal><Quiz /></Reveal>

@@ -9,7 +9,7 @@ export default function CTA() {
     <section
       id="participe"
       aria-labelledby="titulo-participe"
-      className="relative overflow-hidden bg-emerald-950 py-16 sm:py-20 lg:py-28 text-white"
+      className="grain relative overflow-hidden bg-emerald-950 py-16 sm:py-20 lg:py-28 text-white"
     >
       {/* brilhos decorativos */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">

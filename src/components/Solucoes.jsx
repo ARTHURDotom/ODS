@@ -5,7 +5,7 @@ export default function Solucoes() {
     <section
       id="solucoes"
       aria-labelledby="titulo-solucoes"
-      className="relative overflow-hidden bg-emerald-950 py-16 sm:py-20 lg:py-28 text-white"
+      className="grain relative overflow-hidden bg-emerald-950 py-16 sm:py-20 lg:py-28 text-white"
     >
       {/* brilhos decorativos */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
