@@ -179,7 +179,7 @@ export default function Quiz() {
                       {p.opcoes.map((opcao, j) => {
                         const escolhida = respostas[i] === j
                         const certa = j === p.correta
-                        let estilo = 'border-white/15 bg-white/5 hover:bg-white/10 hover:-translate-y-0.5'
+                        let estilo = 'brilho-borda border-white/15 bg-white/5 hover:bg-white/10 hover:-translate-y-0.5'
                         let marcador = null
                         if (respondida) {
                           if (certa) {

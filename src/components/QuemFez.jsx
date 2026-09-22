@@ -40,6 +40,21 @@ export default function QuemFez() {
             <strong>alunos do 1.º ano K do Ensino Médio</strong> do{' '}
             <strong>Colégio Cruzeiro do Sul, São Miguel</strong>.
           </p>
+          <ol className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-bold text-emerald-800" aria-label="Etapas do trabalho">
+            {['Pesquisa', 'Código', 'Vídeo e jogo', 'Site no ar'].map((etapa, i, arr) => (
+              <li key={etapa} className="flex items-center gap-3">
+                <span className="flex items-center gap-2">
+                  <span aria-hidden="true" className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-600 text-xs font-extrabold text-white">
+                    {i + 1}
+                  </span>
+                  {etapa}
+                </span>
+                {i < arr.length - 1 && (
+                  <span aria-hidden="true" className="text-emerald-400">→</span>
+                )}
+              </li>
+            ))}
+          </ol>
           <dl className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
               ['Turma', '1.º ano K · 2026'],

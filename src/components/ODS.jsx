@@ -32,7 +32,7 @@ export default function ODS() {
         <p className="mt-4 max-w-3xl text-lg lg:text-xl text-stone-600 leading-relaxed">
           Os Objetivos de Desenvolvimento Sustentável são um pacto global até 2030. O lixo eletrônico
           atravessa pelo menos quatro deles — e a COP 30, na Amazônia, colocou a{' '}
-          <strong>economia circular</strong> no centro do debate climático.
+          <strong className="destaque-italico">economia circular</strong> no centro do debate climático.
         </p>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
@@ -45,7 +45,7 @@ export default function ODS() {
             >
               <div className="flex items-center gap-3">
                 <span
-                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl text-xl font-extrabold text-white ${o.cor}`}
+                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl text-xl font-extrabold text-white transition-transform duration-300 hover:scale-110 cursor-default ${o.cor}`}
                   aria-hidden="true"
                 >
                   {o.numero}

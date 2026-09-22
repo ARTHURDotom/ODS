@@ -12,7 +12,7 @@ export default function CabecalhoSecao({
 
   return (
     <>
-      <p className={kickerClassName || kickerPadrao}>{kicker}</p>
+      <p className={`com-linha ${kickerClassName || kickerPadrao}`}>{kicker}</p>
       <h2
         id={id}
         className={`mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight ${escuro ? '' : 'text-stone-900'}`}

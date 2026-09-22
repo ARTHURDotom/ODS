@@ -37,7 +37,7 @@ export default function Contador({
   })
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={`tabular-nums numero-glow ${className}`}>
       {prefixo}
       {texto}
       {sufixo}

@@ -23,6 +23,7 @@ import VoltarTopo from './components/VoltarTopo.jsx'
 import FaixaRolante from './components/FaixaRolante.jsx'
 import BarraProgresso from './components/BarraProgresso.jsx'
 import DivisoriaOnda from './components/DivisoriaOnda.jsx'
+import CircuitoDivisor from './components/CircuitoDivisor.jsx'
 
 export default function App() {
   return (
@@ -43,8 +44,10 @@ export default function App() {
         <DivisoriaOnda />
         <Reveal><Solucoes /></Reveal>
         <Reveal><Calculadora /></Reveal>
+        <CircuitoDivisor />
         <Reveal><Jogo /></Reveal>
         <Reveal><Memoria /></Reveal>
+        <CircuitoDivisor />
         <Reveal><Quiz /></Reveal>
         <Reveal><Enquete /></Reveal>
         <Reveal><CTA /></Reveal>

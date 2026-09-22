@@ -77,9 +77,12 @@ export default function Jogo() {
                     href={GAME_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-7 py-3.5"
+                    className="pulso-suave px-7 py-3.5"
                   >
-                    Jogar agora <span aria-hidden="true">↗</span>
+                    Jogar agora{' '}
+                  <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                    ↗
+                  </span>
                   </BotaoPrimario>
                   <button
                     type="button"

@@ -45,7 +45,7 @@ export default function Problema() {
             legenda="Foto: Unsplash. O consumo acelerado de eletrônicos alimenta o descarte."
             aspect="aspect-[16/10]"
             rounded="rounded-3xl"
-            imgClassName="shadow-lg shadow-emerald-900/15 ring-1 ring-stone-200 transition-all duration-500 ease-out hover:shadow-xl hover:scale-[1.01]"
+            imgClassName="duotone moldura-dupla shadow-lg ring-1 ring-stone-200 transition-all duration-500 ease-out hover:shadow-xl hover:scale-[1.01]"
           />
         </div>
 
@@ -76,7 +76,7 @@ export default function Problema() {
         <div className="mt-8 grid gap-5 lg:gap-6 md:grid-cols-2">
           <article className="rounded-2xl bg-gradient-to-br from-emerald-950 to-teal-900 p-6 sm:p-8 lg:p-10 text-white transition-all duration-300 ease-out hover:shadow-lg">
             <h3 className="text-lg lg:text-2xl font-bold">Impacto ambiental e climático</h3>
-            <ul className="mt-4 space-y-3 text-sm sm:text-base lg:text-lg text-emerald-50/90 leading-relaxed list-disc pl-5">
+            <ul className="mt-4 space-y-3 text-sm sm:text-base lg:text-lg text-emerald-50/90 leading-relaxed lista-lima">
               <li>Metais pesados contaminam solo, lençóis freáticos e rios por décadas.</li>
               <li>Refrigeradores descartados liberam gases com potencial de aquecimento milhares de vezes maior que o CO₂.</li>
               <li>US$ 91 bilhões em metais ficam “enterrados” no lixo a cada ano em vez de voltar à indústria.</li>
@@ -84,7 +84,7 @@ export default function Problema() {
           </article>
           <article className="rounded-2xl bg-white p-6 sm:p-8 lg:p-10 ring-1 ring-stone-200/80 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-900/15">
             <h3 className="text-lg lg:text-2xl font-bold text-stone-900">Impacto social e de saúde</h3>
-            <ul className="mt-4 space-y-3 text-sm sm:text-base lg:text-lg text-stone-600 leading-relaxed list-disc pl-5">
+            <ul className="mt-4 space-y-3 text-sm sm:text-base lg:text-lg text-stone-600 leading-relaxed lista-lima">
               <li>Milhões de pessoas — incluindo crianças — manipulam e-lixo informalmente, expostas a fumaça tóxica e queimaduras.</li>
               <li>Queima de cabos e placas libera dioxinas ligadas a problemas respiratórios e neurológicos.</li>
               <li>A reciclagem formal gera emprego verde, renda e protege catadores com equipamentos e direitos.</li>

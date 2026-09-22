@@ -1,4 +1,5 @@
 import Emblema from './Emblema.jsx'
+import ContrasteToggle from './ContrasteToggle.jsx'
 
 const saibaMais = [
   ['Global E-waste Monitor 2024', 'https://globalewaste.org/'],
@@ -8,11 +9,11 @@ const saibaMais = [
 ]
 
 const linkSuave =
-  'transition-colors duration-300 ease-out hover:text-white hover:underline underline-offset-4'
+  'link-crescente tracking-respira transition-colors duration-300 ease-out hover:text-white'
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-emerald-950 to-teal-950 border-t-2 border-lime-300/40 text-emerald-50/70" aria-label="Rodapé">
+    <footer className="sel-escuro diagonal-fina degrade-animado bg-gradient-to-b from-emerald-950 to-teal-950 border-t-2 border-lime-300/40 text-emerald-50/70" aria-label="Rodapé">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 grid gap-10 md:grid-cols-3">
         <div>
           <p className="flex items-center gap-2 font-extrabold text-white text-lg">
@@ -42,8 +43,11 @@ export default function Footer() {
           <ul className="mt-3 space-y-2 text-sm leading-relaxed">
             {saibaMais.map(([label, href]) => (
               <li key={href}>
-                <a href={href} target="_blank" rel="noopener noreferrer" className={linkSuave}>
-                  {label} <span aria-hidden="true">↗</span>
+                <a href={href} target="_blank" rel="noopener noreferrer" className={`${linkSuave} group`}>
+                  {label}{' '}
+                  <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                    ↗
+                  </span>
                 </a>
               </li>
             ))}
@@ -81,6 +85,14 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-5 flex flex-col sm:flex-row gap-2 justify-between text-xs text-emerald-50/50">
           <p>© 2026 E-lixo Zero · COP 30 — Belém do Pará, Brasil.</p>
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span className="inline-flex items-center gap-1.5">
+              <span aria-hidden="true" className="h-1.5 w-1.5 animate-pulse rounded-full bg-lime-300" />
+              Atualizado em 2026
+            </span>
+            <span aria-hidden="true">·</span>
+            <ContrasteToggle />
+          </p>
           <p>Trabalho escolar · 1.º ano K — Colégio Cruzeiro do Sul, São Miguel · Fotos: Unsplash.</p>
         </div>
       </div>

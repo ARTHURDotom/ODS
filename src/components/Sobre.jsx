@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
+import Separador from './Separador.jsx'
 
 const TERMOS = [
   { termo: 'E-lixo', significado: 'Resíduos de equipamentos eletroeletrônicos: celulares, computadores, TVs, geladeiras, pilhas e lâmpadas.' },
@@ -42,7 +43,8 @@ export default function Sobre() {
           kickerClassName="text-sm font-semibold uppercase tracking-widest text-emerald-700"
           titulo="Glossário, método e guia do professor"
         />
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <Separador className="mt-8" />
+        <div className="mt-8 grid gap-6 lg:grid-cols-3">
           <div className="rounded-[2rem] bg-white p-6 sm:p-8 ring-1 ring-stone-200/70 lg:col-span-1">
             <h3 className="text-xl font-bold text-stone-900">Glossário</h3>
             <label htmlFor="busca-glossario" className="sr-only">Buscar termo</label>

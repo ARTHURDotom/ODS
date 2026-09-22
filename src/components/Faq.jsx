@@ -1,4 +1,5 @@
 import CabecalhoSecao from './CabecalhoSecao.jsx'
+import Separador from './Separador.jsx'
 
 const duvidas = [
   {
@@ -29,7 +30,7 @@ const duvidas = [
 
 export default function Faq() {
   return (
-    <section id="faq" aria-labelledby="titulo-faq" className="bg-white py-16 sm:py-20 lg:py-28">
+    <section id="faq" aria-labelledby="titulo-faq" className="dot-grid bg-white py-16 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <CabecalhoSecao
           id="titulo-faq"
@@ -40,6 +41,7 @@ export default function Faq() {
         <p className="mt-4 max-w-3xl text-lg lg:text-xl text-stone-600 leading-relaxed">
           Toque em cada pergunta para ver a resposta direta.
         </p>
+        <Separador className="mt-6" />
         <div className="mt-8 grid gap-3 lg:grid-cols-2 lg:gap-4">
           {duvidas.map((d) => (
             <details

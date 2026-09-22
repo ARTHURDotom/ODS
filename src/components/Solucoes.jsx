@@ -8,12 +8,12 @@ export default function Solucoes() {
     <section
       id="solucoes"
       aria-labelledby="titulo-solucoes"
-      className="grain relative overflow-hidden bg-emerald-950 py-16 sm:py-20 lg:py-28 text-white"
+      className="grain sel-escuro relative overflow-hidden bg-emerald-950 py-16 sm:py-20 lg:py-28 text-white"
     >
       {/* brilhos decorativos */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-24 right-0 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl" />
-        <div className="absolute bottom-0 -left-24 h-80 w-80 rounded-full bg-lime-400/10 blur-3xl" />
+        <div className="flutuar absolute -top-24 right-0 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl" />
+        <div className="flutuar-2 absolute bottom-0 -left-24 h-80 w-80 rounded-full bg-lime-400/10 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

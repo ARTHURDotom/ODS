@@ -11,6 +11,7 @@ const links = [
 export default function Header() {
   const [aberto, setAberto] = useState(false)
   const [ativa, setAtiva] = useState('inicio')
+  const [rolado, setRolado] = useState(false)
 
   useEffect(() => {
     const ids = ['inicio', ...links.map((l) => l.id)]
@@ -29,8 +30,17 @@ export default function Header() {
     return () => obs.disconnect()
   }, [])
 
+  useEffect(() => {
+    function onScroll() {
+      setRolado(window.scrollY > 24)
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 bg-emerald-950/90 backdrop-blur border-b border-white/10">
+    <header className={`sticky top-0 z-50 backdrop-blur border-b border-white/10 transition-all duration-300 ${rolado ? 'bg-emerald-950 shadow-xl shadow-emerald-950/30' : 'bg-emerald-950/90'}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 flex h-16 items-center justify-between">
         <a href="#inicio" className="flex items-center gap-2 text-white font-extrabold tracking-tight">
           <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600">
@@ -51,7 +61,7 @@ export default function Header() {
                 <a
                   href={l.href}
                   aria-current={ativa === l.id ? 'page' : undefined}
-                  className={`transition-colors duration-300 ease-out hover:text-white hover:underline underline-offset-4 ${ativa === l.id ? 'text-white underline underline-offset-4' : ''}`}
+                  className={`link-crescente transition-colors duration-300 ease-out hover:text-white ${ativa === l.id ? 'text-white font-semibold' : ''}`}
                 >
                   {l.label}
                 </a>

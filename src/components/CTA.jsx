@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CabecalhoSecao from './CabecalhoSecao.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
 import Figura from './Figura.jsx'
+import SeloGiratorio from './SeloGiratorio.jsx'
 
 const beneficios = [
   'Guia em PDF: onde descartar cada tipo de eletrônico',
@@ -42,12 +43,12 @@ export default function CTA() {
     <section
       id="participe"
       aria-labelledby="titulo-participe"
-      className="grain relative overflow-hidden bg-emerald-950 py-16 sm:py-20 lg:py-28 text-white"
+      className="grain sel-escuro relative overflow-hidden bg-emerald-950 py-16 sm:py-20 lg:py-28 text-white"
     >
       {/* brilhos decorativos */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/3 h-72 w-72 rounded-full bg-emerald-500/25 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-lime-400/10 blur-3xl" />
+        <div className="flutuar absolute top-0 left-1/3 h-72 w-72 rounded-full bg-emerald-500/25 blur-3xl" />
+        <div className="flutuar-2 absolute bottom-0 right-0 h-72 w-72 rounded-full bg-lime-400/10 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid items-center gap-10 lg:gap-16 lg:grid-cols-2">
@@ -81,9 +82,12 @@ export default function CTA() {
             </BotaoPrimario>
             <a
               href="#solucoes"
-              className="inline-flex justify-center rounded-full border border-white/25 px-7 py-3.5 lg:px-9 lg:py-4 font-medium text-white backdrop-blur transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white/10 active:translate-y-0"
+              className="group inline-flex justify-center rounded-full border border-white/25 px-7 py-3.5 lg:px-9 lg:py-4 font-medium text-white backdrop-blur transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white/10 active:translate-y-0"
             >
-              Como descartar
+              Como descartar{' '}
+              <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
             </a>
             <button
               type="button"
@@ -107,7 +111,9 @@ export default function CTA() {
           legenda="Foto: Unsplash. Transição energética e circularidade andam juntas."
           legendaClassName="mt-2 text-xs lg:text-sm text-emerald-50/60"
           imgClassName="shadow-2xl shadow-emerald-950/50 ring-1 ring-white/20 transition-all duration-500 ease-out hover:scale-[1.01]"
-        />
+        >
+          <SeloGiratorio className="-top-8 -left-4 hidden sm:block" />
+        </Figura>
       </div>
     </section>
   )

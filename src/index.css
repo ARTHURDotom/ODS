@@ -93,6 +93,245 @@ img {
 .animate-marquee {
   animation: marquee 24s linear infinite;
 }
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+.animate-marquee-reverso {
+  animation: marquee-reverso 30s linear infinite;
+}
+.animate-marquee-reverso:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee-reverso {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Degradê animado lento */
+@keyframes deslize-fundo {
+  to {
+    background-position: 100% 50%;
+  }
+}
+.degrade-animado {
+  background-size: 200% 200%;
+  animation: deslize-fundo 18s ease-in-out infinite alternate;
+}
+
+/* Blobs à deriva */
+@keyframes flutuar {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(30px, -30px);
+  }
+}
+.flutuar {
+  animation: flutuar 9s ease-in-out infinite alternate;
+}
+.flutuar-2 {
+  animation: flutuar 12s ease-in-out infinite alternate-reverse;
+}
+
+/* Grade de pontos para seções claras */
+.dot-grid {
+  background-image: radial-gradient(rgba(4, 120, 87, 0.1) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+/* Diagonal sutil para o rodapé */
+.diagonal-fina {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.03) 0 2px,
+    transparent 2px 10px
+  );
+}
+
+/* Links com sublinhado que cresce da esquerda */
+.link-crescente {
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left calc(100% + 2px);
+  padding-bottom: 2px;
+  transition: background-size 0.3s ease-out;
+}
+.link-crescente:hover,
+.link-crescente[aria-current='page'] {
+  background-size: 100% 2px;
+}
+
+/* Links do rodapé que respiram no hover */
+.tracking-respira {
+  transition:
+    letter-spacing 0.3s ease-out,
+    color 0.3s ease-out;
+}
+.tracking-respira:hover {
+  letter-spacing: 0.04em;
+}
+
+/* Traço lateral nos eyebrows */
+.com-linha::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 2px;
+  background: currentColor;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+/* Itálico de destaque com Sora */
+.destaque-italico {
+  font-family: 'Sora', 'Inter', system-ui, sans-serif;
+  font-style: italic;
+}
+
+/* Duotone esverdeado que sai no hover */
+.duotone {
+  filter: sepia(0.35) hue-rotate(70deg) saturate(1.4);
+}
+.duotone:hover {
+  filter: none;
+}
+
+/* Moldura dupla deslocada */
+.moldura-dupla {
+  box-shadow:
+    0 20px 25px -5px rgb(2 44 34 / 0.15),
+    14px 14px 0 0 #bef264;
+}
+
+/* Pulso suave para CTAs */
+@keyframes pulso-suave {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 10px 15px -3px rgb(2 44 34 / 0.3);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px -3px rgb(190 242 100 / 0.45);
+  }
+}
+.pulso-suave {
+  animation: pulso-suave 2.4s ease-in-out infinite;
+}
+
+/* Borda brilhante no hover */
+.brilho-borda {
+  transition:
+    box-shadow 0.3s ease-out,
+    background-color 0.3s ease-out,
+    transform 0.3s ease-out;
+}
+.brilho-borda:hover {
+  box-shadow:
+    0 0 0 2px rgba(190, 242, 100, 0.8),
+    0 10px 30px rgba(190, 242, 100, 0.25);
+}
+
+/* Glow nos números */
+.numero-glow {
+  text-shadow: 0 0 24px rgba(190, 242, 100, 0.35);
+}
+
+/* Marcadores em círculo lima */
+.lista-lima {
+  list-style: none;
+}
+.lista-lima li {
+  position: relative;
+  padding-left: 1.75rem;
+}
+.lista-lima li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background: #d1fae5;
+  color: #047857;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+/* Seleção temática por fundo */
+.sel-escuro ::selection {
+  background: #bef264;
+  color: #022c22;
+}
+.sel-claro ::selection {
+  background: #047857;
+  color: #ffffff;
+}
+
+/* Entrada em cascata no carregamento */
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.entrada {
+  opacity: 0;
+  animation: subir 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Selo giratório */
+@keyframes girar-lento {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.girar-lento {
+  animation: girar-lento 18s linear infinite;
+}
+
+/* Onda deslizante */
+@keyframes deslize-onda {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.onda-mover {
+  animation: deslize-onda 14s linear infinite;
+}
+
+/* Alto contraste (A+) */
+html.alto-contraste body {
+  font-size: 112.5%;
+}
+html.alto-contraste a {
+  text-decoration: underline !important;
+}
+html.alto-contraste .text-stone-500 {
+  color: #57534e !important;
+}
+html.alto-contraste .text-stone-600 {
+  color: #44403c !important;
+}
+html.alto-contraste .text-emerald-50\/60,
+html.alto-contraste .text-emerald-50\/70,
+html.alto-contraste .text-emerald-50\/80 {
+  color: #ecfdf5 !important;
+}
 
 /* Marca-texto lima para títulos */
 .marca-lima {
@@ -169,6 +408,19 @@ html {
   }
   .animate-marquee {
     animation: none !important;
+  }
+  .animate-marquee-reverso,
+  .flutuar,
+  .flutuar-2,
+  .pulso-suave,
+  .girar-lento,
+  .onda-mover,
+  .degrade-animado,
+  .entrada {
+    animation: none !important;
+  }
+  .entrada {
+    opacity: 1 !important;
   }
 }
 

@@ -1,6 +1,7 @@
 import Contador from './Contador.jsx'
 import BotaoPrimario from './BotaoPrimario.jsx'
 import Figura from './Figura.jsx'
+import SeloGiratorio from './SeloGiratorio.jsx'
 import { srcSetUnsplash } from '../imagens.js'
 
 export default function Hero() {
@@ -16,7 +17,7 @@ export default function Hero() {
       id="inicio"
       aria-labelledby="titulo-hero"
       onMouseMove={moverLuz}
-      className="grain group relative overflow-hidden bg-emerald-950 text-white"
+      className="grain group sel-escuro relative overflow-hidden bg-emerald-950 text-white"
     >
       {/* foto de fundo + véu em degradê */}
       <img
@@ -40,24 +41,25 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 xl:py-28 grid gap-12 lg:gap-16 lg:grid-cols-2 lg:items-center">
         <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs sm:text-sm font-medium text-emerald-50 backdrop-blur">
+          <p className="entrada inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs sm:text-sm font-medium text-emerald-50 backdrop-blur">
             <span aria-hidden="true" className="h-2 w-2 rounded-full bg-lime-300" />
             COP 30 · Belém do Pará · ODS 12 · 13 · 14 · 15
           </p>
           <h1
             id="titulo-hero"
-            className="mt-5 text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-tight tracking-tight"
+            style={{ animationDelay: '80ms' }}
+            className="entrada mt-5 text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-tight tracking-tight"
           >
             Seu eletrônico velho não desaparece.{' '}
             <span className="text-lime-200">Ele pode virar solução.</span>
           </h1>
-          <p className="mt-5 text-lg lg:text-xl text-emerald-50/90 leading-relaxed max-w-xl">
+          <p style={{ animationDelay: '160ms' }} className="entrada mt-5 text-lg lg:text-xl text-emerald-50/90 leading-relaxed max-w-xl">
             O mundo gera <strong className="text-white">62 milhões de toneladas</strong> de lixo
             eletrônico por ano — e recicla menos de um quarto. O{' '}
-            <strong className="text-white">ODS 12 (Consumo e Produção Responsáveis)</strong> mostra
+            <strong className="destaque-italico text-white">ODS 12 (Consumo e Produção Responsáveis)</strong> mostra
             o caminho: reparar, reutilizar, devolver e reciclar.
           </p>
-          <ul aria-label="Três atitudes simples" className="mt-6 flex flex-wrap gap-2">
+          <ul aria-label="Três atitudes simples" style={{ animationDelay: '240ms' }} className="entrada mt-6 flex flex-wrap gap-2">
             {['1 · Reparar', '2 · Reutilizar', '3 · Reciclar'].map((t) => (
               <li
                 key={t}
@@ -67,15 +69,18 @@ export default function Hero() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <div style={{ animationDelay: '320ms' }} className="entrada mt-8 flex flex-col sm:flex-row gap-3">
             <BotaoPrimario href="#participe" className="px-7 py-3.5 lg:px-9 lg:py-4 lg:text-lg shadow-emerald-950/30">
               Participe da solução
             </BotaoPrimario>
             <a
               href="#problema"
-              className="inline-flex justify-center rounded-full border border-white/25 px-7 py-3.5 lg:px-9 lg:py-4 lg:text-lg font-medium text-white backdrop-blur transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white/10 active:translate-y-0"
+              className="group inline-flex justify-center rounded-full border border-white/25 px-7 py-3.5 lg:px-9 lg:py-4 lg:text-lg font-medium text-white backdrop-blur transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white/10 active:translate-y-0"
             >
-              Ver os dados
+              Ver os dados{' '}
+              <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
             </a>
           </div>
           <dl className="mt-10 grid grid-cols-3 gap-3 max-w-lg text-center">
@@ -109,6 +114,7 @@ export default function Hero() {
           legendaClassName="mt-3 text-xs lg:text-sm text-emerald-50/60"
           imgClassName="shadow-2xl shadow-emerald-950/40 ring-1 ring-white/20"
         >
+          <SeloGiratorio className="-top-8 -right-2 hidden sm:block" />
           <div className="absolute bottom-5 left-5 right-5 sm:left-8 sm:right-auto sm:max-w-sm rounded-2xl bg-white/95 px-5 py-4 lg:px-6 lg:py-5 shadow-xl shadow-emerald-950/20 backdrop-blur transition-all duration-300 ease-out hover:-translate-y-1">
             <p className="text-xs lg:text-sm font-semibold uppercase tracking-wider text-emerald-700">
               Economia circular
